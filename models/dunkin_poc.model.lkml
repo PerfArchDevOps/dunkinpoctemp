@@ -39,3 +39,5 @@ explore: pos_yoy_day_sales_f {}
 explore: pos_yoy_week_sales_f {}
 
 explore: shop_brand_class_fl {}
+
+explore: dbi_bi_user_access {}
