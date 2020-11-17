@@ -4,11 +4,12 @@ view: dates {
 
   dimension: dates_id {
     primary_key: yes
+    hidden: yes
     type: number
     sql: ${TABLE}.DATES_ID ;;
   }
 
-  dimension_group: actual {
+  dimension_group: actual_date {
     type: time
     timeframes: [
       raw,
@@ -19,6 +20,8 @@ view: dates {
       year
     ]
     convert_tz: no
+    hidden: no
+    label: "Fiscal Date MM/DD/YYYY"
     datatype: date
     sql: ${TABLE}.ACTUAL_DATE ;;
   }
@@ -33,6 +36,7 @@ view: dates {
       quarter,
       year
     ]
+    hidden: yes
     convert_tz: no
     datatype: date
     sql: ${TABLE}.CAL_MONTH_END_DATE ;;
@@ -40,61 +44,75 @@ view: dates {
 
   dimension: calendar_date {
     type: string
+    hidden: yes
     sql: ${TABLE}.CALENDAR_DATE ;;
   }
 
   dimension: calendar_month {
     type: string
+    hidden: yes
     sql: ${TABLE}.CALENDAR_MONTH ;;
   }
 
   dimension: calendar_week {
     type: string
+    hidden: yes
     sql: ${TABLE}.CALENDAR_WEEK ;;
   }
 
   dimension: calendar_year {
     type: number
+    hidden: yes
     sql: ${TABLE}.CALENDAR_YEAR ;;
   }
 
   dimension: calendar_year_in_char {
     type: string
+    hidden: yes
     sql: ${TABLE}.CALENDAR_YEAR_IN_CHAR ;;
   }
 
   dimension: cur_fis_year {
     type: string
+    hidden: yes
     sql: ${TABLE}.CUR_FIS_YEAR ;;
   }
 
   dimension: day_name {
     type: string
+    hidden: yes
     sql: ${TABLE}.DAY_NAME ;;
   }
 
   dimension: day_of_month {
     type: number
+    hidden: yes
     sql: ${TABLE}.DAY_OF_MONTH ;;
   }
 
   dimension: day_of_week {
     type: number
+    hidden: no
+    label: "Fiscal Day of Week Number"
     sql: ${TABLE}.DAY_OF_WEEK ;;
   }
 
   dimension: day_of_year {
     type: number
+    hidden: yes
     sql: ${TABLE}.DAY_OF_YEAR ;;
   }
 
   dimension: day_short_name {
     type: string
+    hidden: yes
     sql: ${TABLE}.DAY_SHORT_NAME ;;
   }
 
   dimension: daytype {
     type: string
+    label: "Day Type"
+    hidden: yes
     sql: ${TABLE}.DAYTYPE ;;
   }
 
@@ -108,6 +126,7 @@ view: dates {
       quarter,
       year
     ]
+    hidden: yes
     convert_tz: no
     datatype: date
     sql: ${TABLE}.FISCAL_CAL_ME_DATE ;;
@@ -115,26 +134,31 @@ view: dates {
 
   dimension: fiscal_date {
     type: string
+    label: "Fiscal Date"
     sql: ${TABLE}.FISCAL_DATE ;;
   }
 
   dimension: fiscal_month {
     type: string
+    label: "Fiscal Month"
     sql: ${TABLE}.FISCAL_MONTH ;;
   }
 
   dimension: fiscal_week {
     type: string
+    label: "Fiscal Week"
     sql: ${TABLE}.FISCAL_WEEK ;;
   }
 
   dimension: fiscal_year {
     type: string
+    label: "Fiscal Year"
     sql: ${TABLE}.FISCAL_YEAR ;;
   }
 
   dimension: fiscal_year_nbr {
     type: number
+    hidden: yes
     sql: ${TABLE}.FISCAL_YEAR_NBR ;;
   }
 
@@ -149,6 +173,7 @@ view: dates {
       year
     ]
     convert_tz: no
+    hidden: yes
     datatype: date
     sql: ${TABLE}.LOAD_DATE ;;
   }
@@ -163,6 +188,7 @@ view: dates {
       quarter,
       year
     ]
+    label: "Fiscal Date LY MM/DD/YYYY"
     convert_tz: no
     datatype: date
     sql: ${TABLE}.LY_DATE ;;
@@ -180,11 +206,13 @@ view: dates {
     ]
     convert_tz: no
     datatype: date
+    label: "Fiscal Week LY MM/DD/YYYY"
     sql: ${TABLE}.LY_WEEK_ENDING_DATE ;;
   }
 
   dimension: month_disp_name {
     type: string
+    hidden: yes
     sql: ${TABLE}.MONTH_DISP_NAME ;;
   }
 
@@ -200,45 +228,53 @@ view: dates {
     ]
     convert_tz: no
     datatype: date
+    hidden: yes
     sql: ${TABLE}.MONTH_ENDING_DATE ;;
   }
 
   dimension: month_name {
     type: string
+    hidden: yes
     sql: ${TABLE}.MONTH_NAME ;;
   }
 
   dimension: month_numeric_name {
     type: number
+    label: "Fiscal Month of Year"
     sql: ${TABLE}.MONTH_NUMERIC_NAME ;;
   }
 
   dimension: month_of_year {
     type: string
+    hidden: yes
     sql: ${TABLE}.MONTH_OF_YEAR ;;
   }
 
   dimension: month_short_name {
     type: string
+    hidden: yes
     sql: ${TABLE}.MONTH_SHORT_NAME ;;
   }
 
   dimension: prior_fis_year {
     type: string
+    hidden: yes
     sql: ${TABLE}.PRIOR_FIS_YEAR ;;
   }
 
   dimension: quarter_of_year {
     type: string
+    label: "Fiscal Quarter"
     sql: ${TABLE}.QUARTER_OF_YEAR ;;
   }
 
   dimension: quarter_of_year_name {
     type: string
+    hidden: yes
     sql: ${TABLE}.QUARTER_OF_YEAR_NAME ;;
   }
 
-  dimension_group: todays {
+  dimension_group: todays_date {
     type: time
     timeframes: [
       raw,
@@ -250,10 +286,11 @@ view: dates {
     ]
     convert_tz: no
     datatype: date
+    hidden: yes
     sql: ${TABLE}.TODAYS_DATE ;;
   }
 
-  dimension_group: update {
+  dimension_group: update_date {
     type: time
     timeframes: [
       raw,
@@ -265,6 +302,7 @@ view: dates {
     ]
     convert_tz: no
     datatype: date
+    hidden: yes
     sql: ${TABLE}.UPDATE_DATE ;;
   }
 
@@ -279,32 +317,38 @@ view: dates {
       year
     ]
     convert_tz: no
+    label: "Fiscal Week MM/DD/YYYY"
     datatype: date
     sql: ${TABLE}.WEEK_ENDING_DATE ;;
   }
 
   dimension: week_of_month {
     type: number
+    hidden: yes
     sql: ${TABLE}.WEEK_OF_MONTH ;;
   }
 
   dimension: week_of_month_name {
     type: string
+    hidden: yes
     sql: ${TABLE}.WEEK_OF_MONTH_NAME ;;
   }
 
   dimension: week_of_year {
     type: number
+    hidden: yes
     sql: ${TABLE}.WEEK_OF_YEAR ;;
   }
 
   dimension: week_of_year_name {
     type: string
+    hidden: yes
     sql: ${TABLE}.WEEK_OF_YEAR_NAME ;;
   }
 
   dimension: year_name {
     type: string
+    hidden: yes
     sql: ${TABLE}.YEAR_NAME ;;
   }
 
