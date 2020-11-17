@@ -113,7 +113,7 @@ view: pos_brand_by_week_dayprt_grp_f {
     sql: ${TABLE}.GROSS_UNITS_QTY ;;
   }
 
-  dimension: gross_units_qty {
+  measure: gross_units_qty {
     label: "Gross Units Qty"
     type: number
     sql: ${TABLE}.GROSS_UNITS_QTY ;;
@@ -137,7 +137,7 @@ view: pos_brand_by_week_dayprt_grp_f {
     sql: ${TABLE}.NET_SALES_AMT_LY ;;
   }
 
-  dimension: net_sales_amt_ly {
+  measure: net_sales_amt_ly {
     label: "Net Sales Amt LY"
     type: number
     sql: ${TABLE}.NET_SALES_AMT_LY ;;
