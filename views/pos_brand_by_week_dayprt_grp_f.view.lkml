@@ -1,7 +1,14 @@
 view: pos_brand_by_week_dayprt_grp_f {
   sql_table_name: FIVETRAN.POS_BRAND_BY_WEEK_DAYPRT_GRP_F ;;
 
-  dimension: discnt_amt {
+  dimension: discnt_amt_base {
+    hidden: yes
+    type: number
+    sql: ${TABLE}.DISCNT_AMT ;;
+  }
+
+  measure: discnt_amt {
+    label: "Discount Amt"
     type: number
     sql: ${TABLE}.DISCNT_AMT ;;
   }
