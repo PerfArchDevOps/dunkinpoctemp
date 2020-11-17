@@ -91,10 +91,18 @@ view: pos_item_by_day_f {
     sql: ${TABLE}.GROSS_UNITS_QTY ;;
   }
 
-  dimension: net_sales_amt {
+  dimension: net_sales_amt_base {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.NET_SALES_AMT ;;
+  }
+
+  measure: net_sales_amt {
+    label: "Net Sales Amt"
     type: number
     sql: ${TABLE}.NET_SALES_AMT ;;
   }
+
 
   dimension: net_sales_amt_ly {
     type: number
