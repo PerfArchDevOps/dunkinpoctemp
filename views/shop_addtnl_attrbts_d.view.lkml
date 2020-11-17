@@ -13,6 +13,7 @@ view: shop_addtnl_attrbts_d {
     ]
     convert_tz: no
     datatype: date
+    hidden: yes
     sql: ${TABLE}.DWH_CREATD_DATETM ;;
   }
 
@@ -33,10 +34,12 @@ view: shop_addtnl_attrbts_d {
     ]
     convert_tz: no
     datatype: date
+    hidden: yes
     sql: ${TABLE}.DWH_UPDTD_DATETM ;;
   }
 
   dimension_group: kiosk_go_live {
+    label: "Kiosk Go Live Date"
     type: time
     timeframes: [
       raw,
@@ -53,6 +56,7 @@ view: shop_addtnl_attrbts_d {
 
   measure: count {
     type: count
+    hidden: yes
     drill_fields: []
   }
 }

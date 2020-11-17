@@ -10,7 +10,6 @@ datagroup: dunkin_poc_default_datagroup {
 
 persist_with: dunkin_poc_default_datagroup
 
-
 explore: pos_brand_by_day_dayprt_grp_f {}
 
 explore: pos_brand_by_week_dayprt_grp_f {}
@@ -41,6 +40,4 @@ explore: pos_yoy_week_sales_f {}
 
 explore: shop_brand_class_fl {}
 
-#explore: looker_session {}
-
-#explore: looker_sql {}
+explore: dbi_bi_user_access {}
