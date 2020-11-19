@@ -22,8 +22,14 @@ explore: pos_check_by_week_dayprt_f {}
 
 explore: pos_check_by_week_f {}
 
-explore: pos_item_by_day_f {}
-
+explore: pos_item_by_day_f {
+  join: dates {
+    relationship: one_to_many
+    type: inner
+    sql_on: ${pos_item_by_day_f.transctn_bus_date} = ${dates.actual_date_date}
+            AND ${pos_item_by_day_f.transctn_bus_date} = '12-NOV-2020';;
+  }
+}
 explore: pos_item_by_dayprt_f {}
 
 explore: pos_item_by_week_dayprt_f {}
