@@ -1,4 +1,4 @@
-connection: "dunkinpocpa"
+connection: "DBM01PDG"
 
 # include all the views
 include: "/views/**/*.view"
