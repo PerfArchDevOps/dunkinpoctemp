@@ -24,7 +24,7 @@ explore: pos_check_by_week_f {}
 
 explore: pos_item_by_day_f {
   join: dates {
-    relationship: one_to_many
+    relationship: many_to_one
     type: inner
     sql_on: ${pos_item_by_day_f.transctn_bus_date} = ${dates.actual_date_date}
             AND ${pos_item_by_day_f.transctn_bus_date} = '2020-11-12';;
