@@ -27,7 +27,7 @@ explore: pos_item_by_day_f {
     relationship: one_to_many
     type: inner
     sql_on: ${pos_item_by_day_f.transctn_bus_date} = ${dates.actual_date_date}
-            AND ${pos_item_by_day_f.transctn_bus_date} = '12-NOV-2020';;
+            AND ${pos_item_by_day_f.transctn_bus_date} = '2020-11-12';;
   }
 }
 explore: pos_item_by_dayprt_f {}
