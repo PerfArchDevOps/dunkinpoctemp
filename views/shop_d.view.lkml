@@ -928,13 +928,14 @@ view: shop_d {
   dimension: pfcntr {
     type: number
     label: "PFTCTR"
-    hidden: yes
+    hidden: no
     sql: ${TABLE}.PFCNTR ;;
   }
 
   dimension: pfcntr_addr1_city_state {
     type: string
-    hidden: yes
+    label: "PC Address"
+    hidden: no
     sql: ${TABLE}.PFCNTR_ADDR1_CITY_STATE ;;
   }
 
