@@ -1,5 +1,5 @@
 view: pos_item_by_day_f {
-  sql_table_name: FIVETRAN.POS_ITEM_BY_DAY_F ;;
+  sql_table_name: BAL3.POS_ITEM_BY_DAY_F ;;
 
   dimension: discnt_amt_base {
     type: number

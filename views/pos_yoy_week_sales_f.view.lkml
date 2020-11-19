@@ -1,5 +1,5 @@
 view: pos_yoy_week_sales_f {
-  sql_table_name: FIVETRAN.POS_YOY_WEEK_SALES_F ;;
+  sql_table_name: BAL3.POS_YOY_WEEK_SALES_F ;;
 
   dimension_group: dwh_creatd_datetm {
     type: time

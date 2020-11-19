@@ -1,5 +1,5 @@
 view: shop_brand_class_fl {
-  sql_table_name: FIVETRAN.SHOP_BRAND_CLASS_FL ;;
+  sql_table_name: BAL3.SHOP_BRAND_CLASS_FL ;;
 
   dimension: class_code {
     type: string

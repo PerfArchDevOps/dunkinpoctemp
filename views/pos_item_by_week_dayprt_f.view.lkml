@@ -1,5 +1,5 @@
 view: pos_item_by_week_dayprt_f {
-  sql_table_name: FIVETRAN.POS_ITEM_BY_WEEK_DAYPRT_F ;;
+  sql_table_name: BAL3.POS_ITEM_BY_WEEK_DAYPRT_F ;;
 
   dimension: discnt_amt_base {
     hidden: yes

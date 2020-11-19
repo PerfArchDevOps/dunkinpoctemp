@@ -1,5 +1,5 @@
 view: pos_check_by_dayprt_f {
-  sql_table_name: FIVETRAN.POS_CHECK_BY_DAYPRT_F ;;
+  sql_table_name: BAL3.POS_CHECK_BY_DAYPRT_F ;;
 
   dimension: check_cnt_base {
     hidden: yes

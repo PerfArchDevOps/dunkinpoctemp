@@ -1,5 +1,5 @@
 view: pos_subcat_by_day_dayprt_grp_f {
-  sql_table_name: FIVETRAN.POS_SUBCAT_BY_DAY_DAYPRT_GRP_F ;;
+  sql_table_name: BAL3.POS_SUBCAT_BY_DAY_DAYPRT_GRP_F ;;
 
   dimension: discnt_amt {
     type: number
