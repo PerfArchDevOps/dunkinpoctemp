@@ -1,4 +1,4 @@
-connection: "DBM01PDG"
+connection: "dbm01pdg"
 
 # include all the views
 include: "/views/**/*.view"

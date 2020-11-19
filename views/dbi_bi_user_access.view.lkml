@@ -1,5 +1,5 @@
 view: dbi_bi_user_access {
-  sql_table_name: FIVETRAN.DBI_BI_USER_ACCESS ;;
+  sql_table_name: BAL.DBI_BI_USER_ACCESS ;;
 
   dimension: access_hier_level_mstr_id_fk {
     type: number
