@@ -1,5 +1,5 @@
 view: shop_d {
-  sql_table_name: FIVETRAN.SHOP_D ;;
+  sql_table_name: BAL2.SHOP_D ;;
 
   dimension_group: act_ref {
     type: time

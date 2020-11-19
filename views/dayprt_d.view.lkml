@@ -1,5 +1,5 @@
 view: dayprt_d {
-  sql_table_name: FIVETRAN.DAYPRT_D ;;
+  sql_table_name: BAL.DAYPRT_D ;;
 
   dimension: br_dayprt_super_grp_code {
     type: string

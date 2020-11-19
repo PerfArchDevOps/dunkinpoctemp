@@ -1,5 +1,5 @@
 view: shop_brand_mastr_d {
-  sql_table_name: FIVETRAN.SHOP_BRAND_MASTR_D ;;
+  sql_table_name: BAL3.SHOP_BRAND_MASTR_D ;;
 
   dimension_group: actl_refrbsh {
     type: time

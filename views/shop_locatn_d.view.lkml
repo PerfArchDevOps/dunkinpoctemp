@@ -1,5 +1,5 @@
 view: shop_locatn_d {
-  sql_table_name: FIVETRAN.SHOP_LOCATN_D ;;
+  sql_table_name: BAL2.SHOP_LOCATN_D ;;
 
   dimension: actv_flg {
     type: string

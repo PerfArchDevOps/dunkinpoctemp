@@ -1,5 +1,5 @@
 view: shop_addtnl_attrbts_d {
-  sql_table_name: FIVETRAN.SHOP_ADDTNL_ATTRBTS_D ;;
+  sql_table_name: BAL3.SHOP_ADDTNL_ATTRBTS_D ;;
 
   dimension_group: dwh_creatd_datetm {
     type: time

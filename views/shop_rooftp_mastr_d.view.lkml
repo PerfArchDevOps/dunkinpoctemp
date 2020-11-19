@@ -1,5 +1,5 @@
 view: shop_rooftp_mastr_d {
-  sql_table_name: FIVETRAN.SHOP_ROOFTP_MASTR_D ;;
+  sql_table_name: BAL3.SHOP_ROOFTP_MASTR_D ;;
 
   dimension: anchr_pfcntr {
     type: number

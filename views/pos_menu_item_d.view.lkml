@@ -1,5 +1,5 @@
 view: pos_menu_item_d {
-  sql_table_name: FIVETRAN.POS_MENU_ITEM_D ;;
+  sql_table_name: BAL3.POS_MENU_ITEM_D ;;
 
   dimension: actv_flg {
     type: string

@@ -1,5 +1,5 @@
 view: dayprt_hour_d {
-  sql_table_name: FIVETRAN.DAYPRT_HOUR_D ;;
+  sql_table_name: BAL.DAYPRT_HOUR_D ;;
 
   dimension: dayprt_duratn_in_min_nbr {
     type: number

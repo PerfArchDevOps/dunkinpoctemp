@@ -1,5 +1,5 @@
 view: item_food_cost_d {
-  sql_table_name: FIVETRAN.ITEM_FOOD_COST_D ;;
+  sql_table_name: BAL.ITEM_FOOD_COST_D ;;
 
   dimension: dbi_catgry_name {
     type: string

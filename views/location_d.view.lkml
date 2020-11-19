@@ -1,5 +1,5 @@
 view: location_d {
-  sql_table_name: FIVETRAN.LOCATION_D ;;
+  sql_table_name: BAL.LOCATION_D ;;
 
   dimension: bi_securty_fmd_name {
     type: string

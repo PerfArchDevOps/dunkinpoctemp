@@ -1,5 +1,5 @@
 view: dayprt_grp_d {
-  sql_table_name: FIVETRAN.DAYPRT_GRP_D ;;
+  sql_table_name: BAL.DAYPRT_GRP_D ;;
 
   dimension: actv_ind {
     type: string

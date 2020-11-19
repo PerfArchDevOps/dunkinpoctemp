@@ -1,5 +1,5 @@
 view: dates_week {
-  sql_table_name: FIVETRAN.DATES_WEEK ;;
+  sql_table_name: BAL.DATES_WEEK ;;
 
   dimension: calendar_month {
     type: string

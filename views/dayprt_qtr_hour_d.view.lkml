@@ -1,5 +1,5 @@
 view: dayprt_qtr_hour_d {
-  sql_table_name: FIVETRAN.DAYPRT_QTR_HOUR_D ;;
+  sql_table_name: BAL.DAYPRT_QTR_HOUR_D ;;
 
   dimension: br_dayprt_super_grp_code {
     type: string

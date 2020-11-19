@@ -1,5 +1,5 @@
 view: shop_br_dlivry_partnrs_d {
-  sql_table_name: FIVETRAN.SHOP_BR_DLIVRY_PARTNRS_D ;;
+  sql_table_name: BAL3.SHOP_BR_DLIVRY_PARTNRS_D ;;
 
   dimension: data_level_id {
     type: number

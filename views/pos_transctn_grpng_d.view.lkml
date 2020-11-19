@@ -1,5 +1,5 @@
 view: pos_transctn_grpng_d {
-  sql_table_name: FIVETRAN.POS_TRANSCTN_GRPNG_D ;;
+  sql_table_name: BAL3.POS_TRANSCTN_GRPNG_D ;;
 
   dimension: actv_flg {
     type: string

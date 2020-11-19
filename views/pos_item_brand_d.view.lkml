@@ -1,5 +1,5 @@
 view: pos_item_brand_d {
-  sql_table_name: FIVETRAN.POS_ITEM_BRAND_D ;;
+  sql_table_name: BAL3.POS_ITEM_BRAND_D ;;
 
   dimension: actv_flg {
     type: string
