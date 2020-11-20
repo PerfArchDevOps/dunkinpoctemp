@@ -379,6 +379,7 @@ view: shop_rooftp_mastr_d {
 
   dimension: dwh_shop_rooftp_id {
     type: number
+    primary_key: yes
     hidden: yes
     sql: ${TABLE}.DWH_SHOP_ROOFTP_ID ;;
   }
