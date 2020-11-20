@@ -136,7 +136,7 @@ view: pos_item_by_week_f {
   }
 
   measure: net_sales_amt {
-    label: "Net Sales Amt"
+    label: "Net Sales Amt SSSD"
     type: number
     sql: ${TABLE}.NET_SALES_AMT ;;
   }
@@ -148,7 +148,7 @@ view: pos_item_by_week_f {
   }
 
   measure: net_sales_amt_ly {
-    label: "Net Sales Amt LY"
+    label: "Net Sales Amt LY SSSD"
     type: number
     sql: ${TABLE}.NET_SALES_AMT_LY ;;
   }
@@ -173,6 +173,18 @@ view: pos_item_by_week_f {
     hidden: yes
     type: number
     sql: ${TABLE}.YOY_SALES_WEEK_IND ;;
+  }
+
+  measure: net_sales_growth_sssd {
+    label: "Net Sales Growth SSSD"
+    type: sum
+    sql: ifnull(${net_sales_amt_base},0)-ifnull(${net_sales_amt_ly_base},0) ;;
+  }
+
+  measure: net_sales_growth_pct_sssd {
+    label: "Net Sales Growth % SSSD"
+    type: sum
+    sql: (ifnull(${net_sales_amt_base},0)/ifnull(${net_sales_amt_ly_base},0)*100) ;;
   }
 
   measure: count {
