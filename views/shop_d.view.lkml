@@ -978,10 +978,21 @@ view: shop_d {
 
   dimension: pfcntr {
     type: number
+    primary_key: no
     label: "PFTCTR"
     hidden: no
     sql: ${TABLE}.PFCNTR ;;
   }
+
+  dimension: pfcntr_key {
+    type: number
+    primary_key: yes
+    label: "PFTCTR_Key"
+    hidden: no
+    sql: cast(${TABLE}.PFCNTR  as character(6) || ${TABLE}.DWH_SHOP_ID;;
+  }
+
+
 
   dimension: pfcntr_addr1_city_state {
     type: string

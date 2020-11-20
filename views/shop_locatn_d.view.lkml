@@ -91,6 +91,7 @@ view: shop_locatn_d {
   dimension: shop_locatn_id {
     type: number
     hidden: yes
+    primary_key: yes
     sql: ${TABLE}.SHOP_LOCATN_ID ;;
   }
 
