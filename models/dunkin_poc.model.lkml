@@ -34,6 +34,13 @@ explore: pos_item_by_day_f {
     type: inner
     sql_on: ${pos_item_by_day_f.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id};;
   }
+  join: shop_brand_class_fl {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_day_f.dwh_shop_brand_id} = ${shop_brand_class_fl.dwh_shop_brand_id}
+              AND ${pos_item_by_day_f.dwh_shop_rooftp_id = ${shop_brand_class_fl.dwh_shop_rooftp_id}
+              AND ${pos_item_by_day_f.transctn_bus_date} = ${shop_brand_class_fl.shop_brand_class_date}  };;
+              }
 }
 explore: pos_item_by_dayprt_f {}
 
