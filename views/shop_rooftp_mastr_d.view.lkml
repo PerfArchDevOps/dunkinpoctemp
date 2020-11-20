@@ -3,55 +3,64 @@ view: shop_rooftp_mastr_d {
 
   dimension: anchr_pfcntr {
     type: number
-    hidden: yes
+    hidden: no
+    label: "Anchor PC"
     sql: ${TABLE}.ANCHR_PFCNTR ;;
   }
 
   dimension: apod_ind {
     type: string
-    hidden: yes
+    hidden: no
+    label: "APOD Flag"
     sql: ${TABLE}.APOD_IND ;;
   }
 
   dimension: autofire_ind {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Auto-Fire Indicator"
     sql: ${TABLE}.AUTOFIRE_IND ;;
   }
 
   dimension: br_ext_menu_board_desc {
     type: string
-    hidden: yes
+    hidden: no
+    label: "BR External Menu Board"
     sql: ${TABLE}.BR_EXT_MENU_BOARD_DESC ;;
   }
 
   dimension: br_int_menu_board_desc {
     type: string
-    hidden: yes
+    hidden: no
+    label: "BR Internal Menu Board"
     sql: ${TABLE}.BR_INT_MENU_BOARD_DESC ;;
   }
 
   dimension: br_sl_bc_pyrmd_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "BR Ops Manager"
     sql: ${TABLE}.BR_SL_BC_PYRMD_NAME ;;
   }
 
   dimension: br_sl_coo_pyrmd_name {
-    hidden: yes
+    hidden: no
+    label: "BR Brand President"
     type: string
     sql: ${TABLE}.BR_SL_COO_PYRMD_NAME ;;
   }
 
   dimension: br_sl_gm_pyrmd_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "BR Ops Director"
     sql: ${TABLE}.BR_SL_GM_PYRMD_NAME ;;
   }
 
   dimension: br_sl_sme_pyrmd_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "BR Ops Regional Vice President"
     sql: ${TABLE}.BR_SL_SME_PYRMD_NAME ;;
   }
 
@@ -63,44 +72,69 @@ view: shop_rooftp_mastr_d {
 
   dimension: br_sl_vp_pyrmd_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "BR Ops Vice President"
     sql: ${TABLE}.BR_SL_VP_PYRMD_NAME ;;
   }
 
   dimension: br_tv_dir_pyrmd_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "BR FM Sr Director"
     sql: ${TABLE}.BR_TV_DIR_PYRMD_NAME ;;
   }
 
   dimension: br_tv_fmd_pyrmd_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "BR FM Director"
     sql: ${TABLE}.BR_TV_FMD_PYRMD_NAME ;;
   }
 
   dimension: br_tv_fmm_pyrmd_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "BR FM Manager"
     sql: ${TABLE}.BR_TV_FMM_PYRMD_NAME ;;
   }
 
   dimension: br_tv_pre_pyrmd_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "BR FM Vice President"
     sql: ${TABLE}.BR_TV_PRE_PYRMD_NAME ;;
   }
 
   dimension: city_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "City"
     sql: ${TABLE}.CITY_NAME ;;
+  }
+
+  dimension: pc_address {
+    type: string
+    hidden: no
+    label: "PC Address"
+    sql:  CAST (${TABLE}.PFCNTR AS CHARACTER ( 6 )) || ' ' || ${TABLE}.LINE_1_ADDR || ' ' || ${TABLE}.CITY_NAME || ' ' || ${TABLE}.STATE_CODE
+ ;;
+  }
+
+  dimension: pc_city_state {
+    type: string
+    hidden: no
+    label: "PC Address"
+    sql:   CAST (${TABLE}.PFCNTR AS CHARACTER ( 6 )) || ' ' || ${TABLE}.CITY_NAME || ' ' || ${TABLE}.STATE_CODE
+
+      ;;
   }
 
   dimension: cntry_code {
     type: string
-    hidden: yes
-    sql: ${TABLE}.CNTRY_CODE ;;
+    hidden: no
+    label: "Country"
+    sql:  CASE  WHEN ${TABLE}.CNTRY_CODE IN ('PR', 'PUR', 'US', 'USA') THEN 'US' WHEN ${TABLE}.CNTRY_CODE IN ('CA', 'CAN') THEN 'CA' ELSE ${TABLE}.CNTRY_CODE END
+ ;;
   }
 
   dimension: cntry_id_code {
@@ -116,7 +150,8 @@ view: shop_rooftp_mastr_d {
   }
 
   dimension: cnty_name {
-    hidden: yes
+    hidden: no
+    label: "County"
     type: string
     sql: ${TABLE}.CNTY_NAME ;;
   }
@@ -129,7 +164,8 @@ view: shop_rooftp_mastr_d {
 
   dimension: co_brander_desc {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Cobrander Desc"
     sql: ${TABLE}.CO_BRANDER_DESC ;;
   }
 
@@ -141,7 +177,8 @@ view: shop_rooftp_mastr_d {
 
   dimension: corp_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Corporation"
     sql: ${TABLE}.CORP_NAME ;;
   }
 
@@ -181,7 +218,8 @@ view: shop_rooftp_mastr_d {
 
   dimension: dcp_desc {
     type: string
-    hidden: yes
+    hidden: no
+    label: "DCP Desc"
     sql: ${TABLE}.DCP_DESC ;;
   }
 
@@ -193,31 +231,36 @@ view: shop_rooftp_mastr_d {
 
   dimension: dd_int_menu_board_desc {
     type: string
-    hidden: yes
+    hidden: no
+    label: "DD Internal Meny Board"
     sql: ${TABLE}.DD_INT_MENU_BOARD_DESC ;;
   }
 
   dimension: dd_sl_bc_pyrmd_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "DD Ops Manager"
     sql: ${TABLE}.DD_SL_BC_PYRMD_NAME ;;
   }
 
   dimension: dd_sl_coo_pyrmd_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "DD Brand President"
     sql: ${TABLE}.DD_SL_COO_PYRMD_NAME ;;
   }
 
   dimension: dd_sl_gm_pyrmd_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "DD Ops Director"
     sql: ${TABLE}.DD_SL_GM_PYRMD_NAME ;;
   }
 
   dimension: dd_sl_sme_pyrmd_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "DD Ops Regional Vice President"
     sql: ${TABLE}.DD_SL_SME_PYRMD_NAME ;;
   }
 
@@ -229,31 +272,36 @@ view: shop_rooftp_mastr_d {
 
   dimension: dd_sl_vp_pyrmd_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "DD Ops Vice President"
     sql: ${TABLE}.DD_SL_VP_PYRMD_NAME ;;
   }
 
   dimension: dd_tv_dir_pyrmd_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "DD FM Sr Director"
     sql: ${TABLE}.DD_TV_DIR_PYRMD_NAME ;;
   }
 
   dimension: dd_tv_fmd_pyrmd_name {
-    hidden: yes
+    hidden: no
+    label: "DD FM Director"
     type: string
     sql: ${TABLE}.DD_TV_FMD_PYRMD_NAME ;;
   }
 
   dimension: dd_tv_fmm_pyrmd_name {
-    hidden: yes
+    hidden: no
+    label: "DD FM Manager"
     type: string
     sql: ${TABLE}.DD_TV_FMM_PYRMD_NAME ;;
   }
 
   dimension: dd_tv_pre_pyrmd_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "DD FM Vice President"
     sql: ${TABLE}.DD_TV_PRE_PYRMD_NAME ;;
   }
 
@@ -265,13 +313,15 @@ view: shop_rooftp_mastr_d {
 
   dimension: dev_type_desc {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Development Type"
     sql: ${TABLE}.DEV_TYPE_DESC ;;
   }
 
   dimension: dma_desc {
     type: string
-    hidden: yes
+    hidden: no
+    label: "DMA"
     sql: ${TABLE}.DMA_DESC ;;
   }
 
@@ -282,7 +332,8 @@ view: shop_rooftp_mastr_d {
   }
 
   dimension: doordsh_actv_ind {
-    hidden: yes
+    hidden: no
+    label: "Dooordash Active Indicator"
     type: string
     sql: ${TABLE}.DOORDSH_ACTV_IND ;;
   }
@@ -299,7 +350,8 @@ view: shop_rooftp_mastr_d {
     ]
     convert_tz: no
     datatype: date
-    hidden: yes
+    hidden: no
+    label: "Doordash Go Live Date"
     sql: ${TABLE}.DOORDSH_GO_LIVE_DATE ;;
   }
 
@@ -373,7 +425,8 @@ view: shop_rooftp_mastr_d {
 
   dimension: grbhub_actv_ind {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Grubhub Active Indicator"
     sql: ${TABLE}.GRBHUB_ACTV_IND ;;
   }
 
@@ -389,7 +442,8 @@ view: shop_rooftp_mastr_d {
     ]
     convert_tz: no
     datatype: date
-    hidden: yes
+    hidden: no
+    label: "Grubhub Go Live Date"
     sql: ${TABLE}.GRBHUB_GO_LIVE_DATE ;;
   }
 
@@ -407,19 +461,22 @@ view: shop_rooftp_mastr_d {
 
   dimension: just_baked_ind {
     type: string
-    hidden: yes
+    hidden: no
+    label: "JBOD Flag"
     sql: ${TABLE}.JUST_BAKED_IND ;;
   }
 
   dimension: kcup_ind {
     type: string
-    hidden: yes
+    hidden: no
+    label: "K-Cup Flag"
     sql: ${TABLE}.KCUP_IND ;;
   }
 
   dimension: large_netwrk_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Large Network Name"
     sql: ${TABLE}.LARGE_NETWRK_NAME ;;
   }
 
@@ -436,20 +493,21 @@ view: shop_rooftp_mastr_d {
   }
 
   dimension: locatn_latitude_nbr {
-    type: number
+    type: location
     hidden: yes
     sql: ${TABLE}.LOCATN_LATITUDE_NBR ;;
   }
 
   dimension: locatn_longitude_nbr {
-    type: number
+    type: location
     hidden: yes
     sql: ${TABLE}.LOCATN_LONGITUDE_NBR ;;
   }
 
   dimension: manfctr_pfcntr {
     type: number
-    hidden: yes
+    hidden: no
+    label: "Manufacturer PFCNTR"
     sql: ${TABLE}.MANFCTR_PFCNTR ;;
   }
 
@@ -467,13 +525,15 @@ view: shop_rooftp_mastr_d {
 
   dimension: netwrk_name {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Network Name"
     sql: ${TABLE}.NETWRK_NAME ;;
   }
 
   dimension: nextgen_ind {
     type: string
-    hidden: yes
+    hidden: no
+    label: "NextGen Indicator"
     sql: ${TABLE}.NEXTGEN_IND ;;
   }
 
@@ -495,13 +555,15 @@ view: shop_rooftp_mastr_d {
     ]
     convert_tz: no
     datatype: date
-    hidden: yes
+    hidden: no
+    label: "Menu Option Go Live Date"
     sql: ${TABLE}.OTG_MENU_OPT_DATE ;;
   }
 
   dimension: otg_menu_opt_flg {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Menu Option Flag"
     sql: ${TABLE}.OTG_MENU_OPT_FLG ;;
   }
 
@@ -531,7 +593,8 @@ view: shop_rooftp_mastr_d {
 
   dimension: postmts_actv_ind {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Postmates Active Indicator"
     sql: ${TABLE}.POSTMTS_ACTV_IND ;;
   }
 
@@ -547,7 +610,8 @@ view: shop_rooftp_mastr_d {
     ]
     convert_tz: no
     datatype: date
-    hidden: yes
+    hidden: no
+    label: "Postmates Go Live Date"
     sql: ${TABLE}.POSTMTS_GO_LIVE_DATE ;;
   }
 
@@ -565,13 +629,15 @@ view: shop_rooftp_mastr_d {
 
   dimension: rooftp_actl_configrtn_desc {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Rooftop Current Configuration"
     sql: ${TABLE}.ROOFTP_ACTL_CONFIGRTN_DESC ;;
   }
 
   dimension: rooftp_curr_configrtn_desc {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Rooftop Open Configuration"
     sql: ${TABLE}.ROOFTP_CURR_CONFIGRTN_DESC ;;
   }
 
@@ -587,7 +653,8 @@ view: shop_rooftp_mastr_d {
     ]
     convert_tz: no
     datatype: date
-    hidden: yes
+    hidden: no
+    label: "Rooftop Original Open Date"
     sql: ${TABLE}.ROOFTP_ORIG_OPEN_DATE ;;
   }
 
@@ -599,7 +666,8 @@ view: shop_rooftp_mastr_d {
 
   dimension: send_pop_ind {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Self Serve Flag"
     sql: ${TABLE}.SEND_POP_IND ;;
   }
 
@@ -615,19 +683,22 @@ view: shop_rooftp_mastr_d {
     ]
     convert_tz: no
     datatype: date
-    hidden: yes
+    hidden: no
+    label: "Drive Thru Active Date"
     sql: ${TABLE}.SHOP_DRIVE_THRU_ACTIVE_DATE ;;
   }
 
   dimension: shop_drive_thru_active_ind {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Drive Thru Active Indicator"
     sql: ${TABLE}.SHOP_DRIVE_THRU_ACTIVE_IND ;;
   }
 
   dimension: shop_drive_thru_frctn_less_ind {
     type: string
-    hidden: yes
+    hidden: no
+    label: "FDT Indicator"
     sql: ${TABLE}.SHOP_DRIVE_THRU_FRCTN_LESS_IND ;;
   }
 
@@ -651,13 +722,15 @@ view: shop_rooftp_mastr_d {
 
   dimension: shop_locatn_catgry_desc {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Urban Category"
     sql: ${TABLE}.SHOP_LOCATN_CATGRY_DESC ;;
   }
 
   dimension: shop_locatn_sub_catgry_desc {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Urban Sub Category"
     sql: ${TABLE}.SHOP_LOCATN_SUB_CATGRY_DESC ;;
   }
 
@@ -669,7 +742,8 @@ view: shop_rooftp_mastr_d {
 
   dimension: site_type_desc {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Site Type Desc"
     sql: ${TABLE}.SITE_TYPE_DESC ;;
   }
 
@@ -687,7 +761,8 @@ view: shop_rooftp_mastr_d {
 
   dimension: state_code {
     type: string
-    hidden: yes
+    hidden: no
+    label: "State"
     sql: ${TABLE}.STATE_CODE ;;
   }
 
@@ -727,7 +802,8 @@ view: shop_rooftp_mastr_d {
 
   dimension: ubreats_actv_ind {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Ubereats Active Indicator"
     sql: ${TABLE}.UBREATS_ACTV_IND ;;
   }
 
@@ -743,7 +819,8 @@ view: shop_rooftp_mastr_d {
     ]
     convert_tz: no
     datatype: date
-    hidden: yes
+    hidden: no
+    label: "Ubereats Go Live Date"
     sql: ${TABLE}.UBREATS_GO_LIVE_DATE ;;
   }
 
@@ -777,7 +854,8 @@ view: shop_rooftp_mastr_d {
 
   dimension: zip_1_code {
     type: string
-    hidden: yes
+    hidden: no
+    label: "Zip"
     sql: ${TABLE}.ZIP_1_CODE ;;
   }
 
