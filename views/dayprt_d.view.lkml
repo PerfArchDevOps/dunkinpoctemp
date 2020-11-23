@@ -97,6 +97,7 @@ view: dayprt_d {
 
   dimension: dwh_dayprt_id {
     type: number
+    primary_key: yes
     sql: ${TABLE}.DWH_DAYPRT_ID ;;
   }
 
