@@ -3,27 +3,36 @@ view: location_d {
 
   dimension: bi_securty_fmd_name {
     type: string
+    hidden: yes
     sql: ${TABLE}.BI_SECURTY_FMD_NAME ;;
   }
 
   dimension: bi_securty_ops_name {
     type: string
+    hidden: yes
     sql: ${TABLE}.BI_SECURTY_OPS_NAME ;;
   }
 
   dimension: dev_region_desc {
     type: string
+    hidden: no
+    label: "DD Development Region"
     sql: ${TABLE}.DEV_REGION_DESC ;;
   }
 
   dimension: dma_desc {
     type: string
+    hidden: yes
     sql: ${TABLE}.DMA_DESC ;;
   }
 
   dimension: dma_nbr {
     type: number
-    sql: ${TABLE}.DMA_NBR ;;
+    primary_key: yes
+    hidden: no
+    label: "DMA"
+    sql:  CAST (${TABLE}.DMA_NBR AS VARCHAR ( 4 )) || ' ' || ${TABLE}.DMA_DESC
+ ;;
   }
 
   dimension_group: dwh_creatd_datetm {
@@ -38,11 +47,13 @@ view: location_d {
     ]
     convert_tz: no
     datatype: date
+    hidden: yes
     sql: ${TABLE}.DWH_CREATD_DATETM ;;
   }
 
   dimension: dwh_locatn_dma_id {
     type: number
+    hidden: yes
     sql: ${TABLE}.DWH_LOCATN_DMA_ID ;;
   }
 
@@ -58,6 +69,7 @@ view: location_d {
     ]
     convert_tz: no
     datatype: date
+    hidden: yes
     sql: ${TABLE}.DWH_UPDTD_DATETM ;;
   }
 
