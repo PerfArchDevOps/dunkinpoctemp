@@ -3,7 +3,7 @@ view: pos_item_brand_d {
 
   dimension: actv_flg {
     type: string
-    sql: ${TABLE}.ACTV_FLG ;;
+    hidden:yes   sql: ${TABLE}.ACTV_FLG ;;
   }
 
   dimension_group: creatd {
@@ -18,22 +18,24 @@ view: pos_item_brand_d {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.CREATD_DATE ;;
+    hidden:yes   sql: ${TABLE}.CREATD_DATE ;;
   }
 
   dimension: dwh_item_brand_id {
     type: number
-    sql: ${TABLE}.DWH_ITEM_BRAND_ID ;;
+    primary_key: yes
+    hidden:yes   sql: ${TABLE}.DWH_ITEM_BRAND_ID ;;
   }
 
   dimension: item_brand_desc {
     type: string
-    sql: ${TABLE}.ITEM_BRAND_DESC ;;
+    hidden:yes   sql: ${TABLE}.ITEM_BRAND_DESC ;;
   }
 
   dimension: item_brand_name {
     type: string
-    sql: ${TABLE}.ITEM_BRAND_NAME ;;
+    label: "Item Brand"
+    hidden:yes   sql: ${TABLE}.ITEM_BRAND_NAME ;;
   }
 
   dimension_group: last_updt {
@@ -48,17 +50,17 @@ view: pos_item_brand_d {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.LAST_UPDT_DATE ;;
+    hidden:yes   sql: ${TABLE}.LAST_UPDT_DATE ;;
   }
 
   dimension: src_item_brand_code {
     type: string
-    sql: ${TABLE}.SRC_ITEM_BRAND_CODE ;;
+    hidden:yes   sql: ${TABLE}.SRC_ITEM_BRAND_CODE ;;
   }
 
   dimension: src_sys_code {
     type: string
-    sql: ${TABLE}.SRC_SYS_CODE ;;
+    hidden:yes   sql: ${TABLE}.SRC_SYS_CODE ;;
   }
 
   measure: count {
