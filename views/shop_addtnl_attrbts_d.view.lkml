@@ -19,6 +19,8 @@ view: shop_addtnl_attrbts_d {
 
   dimension: dwh_shop_brand_id {
     type: number
+    hidden:  yes
+    primary_key: yes
     sql: ${TABLE}.DWH_SHOP_BRAND_ID ;;
   }
 
