@@ -74,3 +74,5 @@ explore: shop_brand_class_fl {}
 explore: dbi_bi_user_access {}
 
 explore: dates {}
+
+explore: shop_d {}
