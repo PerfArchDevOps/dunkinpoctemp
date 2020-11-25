@@ -29,19 +29,19 @@ explore: pos_item_by_day_f {
     sql_on: ${pos_item_by_day_f.transctn_bus_raw} = ${dates.actual_date_raw}
             AND ${pos_item_by_day_f.transctn_bus_raw} = '12-NOV-2020';;
   }
-  #join: shop_brand_mastr_d {
-  #  relationship: many_to_one
-  #  type: inner
-  #  sql_on: ${pos_item_by_day_f.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id};;
-  #}
+  join: shop_brand_mastr_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_day_f.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id};;
+  }
 
-  #join: shop_brand_class_fl {
-  #  relationship: many_to_one
-  #  type: inner
-  #  sql_on: ${pos_item_by_day_f.dwh_shop_brand_id} = ${shop_brand_class_fl.dwh_shop_brand_id}
-  #            AND ${pos_item_by_day_f.dwh_shop_rooftp_id = ${shop_brand_class_fl.dwh_shop_rooftp_id}
-  #            AND ${pos_item_by_day_f.transctn_bus_raw} = ${shop_brand_class_fl.shop_brand_class_raw}  };;
-  #            }
+  join: shop_brand_class_fl {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_day_f.dwh_shop_brand_id} = ${shop_brand_class_fl.dwh_shop_brand_id}
+              AND ${pos_item_by_day_f.dwh_shop_rooftp_id = ${shop_brand_class_fl.dwh_shop_rooftp_id}
+              AND ${pos_item_by_day_f.transctn_bus_raw} = ${shop_brand_class_fl.shop_brand_class_raw}  };;
+              }
 
   #join: ovride_comp_day {
   #  relationship: many_to_one
@@ -50,11 +50,12 @@ explore: pos_item_by_day_f {
   #          AND ${pos_item_by_day_f.dwh_shop_brand_id} = ${ovride_comp_day.dwh_shop_brand_id}
   #          AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL;;
   #}
-  #join: shop_addtnl_attrbts_d {
-  #  relationship: many_to_one
-  #  type: inner
-  #  sql_on: ${pos_item_by_day_f.dwh_shop_brand_id} = ${shop_addtnl_attrbts_d.dwh_shop_brand_id} ;;
-  #}
+
+  join: shop_addtnl_attrbts_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_day_f.dwh_shop_brand_id} = ${shop_addtnl_attrbts_d.dwh_shop_brand_id} ;;
+  }
 
 #explore: pos_item_by_dayprt_f {}
 
