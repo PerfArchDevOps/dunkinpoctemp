@@ -871,6 +871,13 @@ view: shop_rooftp_mastr_d {
     drill_fields: [detail*]
   }
 
+  measure: count_distinct_rooftop {
+    type: count_distinct
+    sql: ${TABLE}.dwh_shop_rooftp_id;;
+    drill_fields: [detail*]
+  }
+
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [

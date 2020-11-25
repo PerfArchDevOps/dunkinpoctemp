@@ -3,7 +3,7 @@ view: pos_item_sub_catgry_d {
 
   dimension: actv_flg {
     type: string
-    sql: ${TABLE}.ACTV_FLG ;;
+    hidden:yes   sql: ${TABLE}.ACTV_FLG ;;
   }
 
   dimension_group: creatd {
@@ -18,27 +18,32 @@ view: pos_item_sub_catgry_d {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.CREATD_DATE ;;
+    hidden:yes   sql: ${TABLE}.CREATD_DATE ;;
   }
 
   dimension: dbi_item_brand_name {
     type: string
+    hidden:yes
+    label: "Item Brand"
     sql: ${TABLE}.DBI_ITEM_BRAND_NAME ;;
   }
 
   dimension: dbi_item_catgry_name {
     type: string
-    sql: ${TABLE}.DBI_ITEM_CATGRY_NAME ;;
+    label: "Category"
+    hidden:yes   sql: ${TABLE}.DBI_ITEM_CATGRY_NAME ;;
   }
 
   dimension: dbi_item_sub_catgry_name {
     type: string
-    sql: ${TABLE}.DBI_ITEM_SUB_CATGRY_NAME ;;
+    label: "Sub Category"
+    hidden:yes   sql: ${TABLE}.DBI_ITEM_SUB_CATGRY_NAME ;;
   }
 
   dimension: dwh_item_sub_catgry_id {
     type: number
-    sql: ${TABLE}.DWH_ITEM_SUB_CATGRY_ID ;;
+    primary_key: yes
+    hidden:yes   sql: ${TABLE}.DWH_ITEM_SUB_CATGRY_ID ;;
   }
 
   dimension_group: last_updt {
@@ -53,7 +58,7 @@ view: pos_item_sub_catgry_d {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.LAST_UPDT_DATE ;;
+    hidden:yes   sql: ${TABLE}.LAST_UPDT_DATE ;;
   }
 
   measure: count {
