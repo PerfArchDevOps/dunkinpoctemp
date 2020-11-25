@@ -26,14 +26,14 @@ explore: pos_item_by_day_f {
   join: dates {
     relationship: many_to_one
     type: inner
-    sql_on: ${pos_item_by_day_f.transctn_bus_date} = ${dates.actual_date_date}
+    sql_on: ${pos_item_by_day_f.transctn_bus_date} = ${dates.actual_date_raw}
             AND ${pos_item_by_day_f.transctn_bus_date} = '2020-11-12';;
   }
-#  join: shop_brand_mastr_d {
-#    relationship: many_to_one
-#    type: inner
-#    sql_on: ${pos_item_by_day_f.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id};;
-#  }
+  join: shop_brand_mastr_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_day_f.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id};;
+  }
 #  join: shop_brand_class_fl {
 #    relationship: many_to_one
 #    type: inner
