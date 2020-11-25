@@ -27,7 +27,7 @@ explore: pos_item_by_day_f {
     relationship: many_to_one
     type: inner
     sql_on: ${pos_item_by_day_f.transctn_bus_raw} = ${dates.actual_date_raw}
-            AND ${pos_item_by_day_f.transctn_bus_raw} = '2020-11-12';;
+            AND ${pos_item_by_day_f.transctn_bus_raw} = '12-NOV-2020';;
   }
   #join: shop_brand_mastr_d {
   #  relationship: many_to_one
