@@ -41,7 +41,7 @@ view: shop_addtnl_attrbts_d {
   }
 
   dimension_group: kiosk_go_live {
-    label: "Kiosk Go Live Date"
+    label: "Kiosk Go Live"
     type: time
     timeframes: [
       raw,

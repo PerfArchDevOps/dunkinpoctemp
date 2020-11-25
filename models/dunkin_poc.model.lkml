@@ -120,5 +120,4 @@ explore: pos_subcat_by_day_dayprt_grp_f {
 
 # explore: dbi_bi_user_access {}
 
-# explore: dates {}
 }

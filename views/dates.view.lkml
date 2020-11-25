@@ -2,6 +2,7 @@ view: dates {
   sql_table_name: BAL.DATES ;;
   drill_fields: [dates_id]
 
+
   dimension: dates_id {
     primary_key: yes
     hidden: yes
