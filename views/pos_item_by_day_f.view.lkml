@@ -177,7 +177,7 @@ view: pos_item_by_day_f {
       year
     ]
     convert_tz: no
-    datatype: date
+    datatype: datetime
     sql: ${TABLE}.TRANSCTN_BUS_DATE ;;
   }
 

@@ -22,7 +22,7 @@ view: dates {
     convert_tz: no
     hidden: no
     label: "Fiscal Date MM/DD/YYYY"
-    datatype: date
+    datatype: datetime
     sql: ${TABLE}.ACTUAL_DATE ;;
   }
 
