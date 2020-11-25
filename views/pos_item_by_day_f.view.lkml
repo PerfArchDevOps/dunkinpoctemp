@@ -190,13 +190,13 @@ view: pos_item_by_day_f {
   measure: net_sales_growth_sssd {
     label: "Net Sales Growth SSSD"
     type: sum
-    sql: ifnull(${net_sales_amt_base},0)-ifnull(${net_sales_amt_ly_base},0) ;;
+    sql: NVL(${net_sales_amt_base},0)-NVL(${net_sales_amt_ly_base},0) ;;
   }
 
   measure: net_sales_growth_pct_sssd {
     label: "Net Sales Growth % SSSD"
     type: sum
-    sql: (ifnull(${net_sales_amt_base},0)/ifnull(${net_sales_amt_ly_base},0)*100) ;;
+    sql: (NVL(${net_sales_amt_base},0)/NVL(${net_sales_amt_ly_base},0)*100) ;;
   }
 
 
