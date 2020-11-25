@@ -196,7 +196,7 @@ view: pos_item_by_day_f {
   measure: net_sales_growth_pct_sssd {
     label: "Net Sales Growth % SSSD"
     type: sum
-    sql: (NVL(${net_sales_amt_base},0)/${net_sales_amt_ly_base})*100 ;;
+    sql: ((NVL(${net_sales_amt_base},0)/(NVL(${net_sales_amt_ly_base},0))-1)*100 ;;
   }
 
 
