@@ -34,6 +34,7 @@ explore: pos_item_by_day_f {
     type: inner
     sql_on: ${pos_item_by_day_f.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id};;
   }
+
   join: shop_brand_class_fl {
     relationship: many_to_one
     type: inner

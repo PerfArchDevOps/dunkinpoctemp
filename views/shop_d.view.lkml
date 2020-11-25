@@ -824,15 +824,15 @@ view: shop_d {
   }
 
   dimension: locatn_latitude {
-    type: location
-    hidden: no
+    type: number
+    hidden:yes
     label: "Location Latitude"
     sql: ${TABLE}.LOCATN_LATITUDE ;;
   }
 
   dimension: locatn_longitude {
-    type: location
-    hidden: no
+    type: number
+    hidden: yes
     label: "Location Longitude"
     sql: ${TABLE}.LOCATN_LONGITUDE ;;
   }

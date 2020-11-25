@@ -1,5 +1,5 @@
 view: dates {
-  sql_table_name: LOOKER_APP.DATES ;;
+  sql_table_name: BAL.DATES ;;
   drill_fields: [dates_id]
 
   dimension: dates_id {
@@ -22,7 +22,7 @@ view: dates {
     convert_tz: no
     hidden: no
     label: "Fiscal Date MM/DD/YYYY"
-    datatype: date
+    datatype: datetime
     sql: ${TABLE}.ACTUAL_DATE ;;
   }
 
