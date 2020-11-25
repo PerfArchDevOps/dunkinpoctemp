@@ -23,7 +23,7 @@ view: pos_item_sub_catgry_d {
 
   dimension: dbi_item_brand_name {
     type: string
-    hidden:yes
+    hidden:no
     label: "Item Brand"
     sql: ${TABLE}.DBI_ITEM_BRAND_NAME ;;
   }
@@ -31,13 +31,13 @@ view: pos_item_sub_catgry_d {
   dimension: dbi_item_catgry_name {
     type: string
     label: "Category"
-    hidden:yes   sql: ${TABLE}.DBI_ITEM_CATGRY_NAME ;;
+    hidden:no   sql: ${TABLE}.DBI_ITEM_CATGRY_NAME ;;
   }
 
   dimension: dbi_item_sub_catgry_name {
     type: string
     label: "Sub Category"
-    hidden:yes   sql: ${TABLE}.DBI_ITEM_SUB_CATGRY_NAME ;;
+    hidden:no   sql: ${TABLE}.DBI_ITEM_SUB_CATGRY_NAME ;;
   }
 
   dimension: dwh_item_sub_catgry_id {

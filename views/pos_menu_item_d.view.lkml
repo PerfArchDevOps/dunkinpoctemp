@@ -8,31 +8,37 @@ view: pos_menu_item_d {
 
   dimension: alt_dbi_item_name {
     type: string
-    hidden:yes   sql: ${TABLE}.ALT_DBI_ITEM_NAME ;;
+    label: "Sales Item"
+    hidden:no   sql: ${TABLE}.ALT_DBI_ITEM_NAME ;;
   }
 
   dimension: dbi_item_brand_name {
     type: string
-    hidden:yes   sql: ${TABLE}.DBI_ITEM_BRAND_NAME ;;
+    label: "Item Brand"
+    hidden:no   sql: ${TABLE}.DBI_ITEM_BRAND_NAME ;;
   }
 
   dimension: dbi_item_catgry_name {
     type: string
-    hidden:yes   sql: ${TABLE}.DBI_ITEM_CATGRY_NAME ;;
+    label: "Category"
+    hidden:no   sql: ${TABLE}.DBI_ITEM_CATGRY_NAME ;;
   }
 
   dimension: dbi_item_famly_name {
     type: string
-    hidden:yes   sql: ${TABLE}.DBI_ITEM_FAMLY_NAME ;;
+    label: "Family"
+    hidden:no   sql: ${TABLE}.DBI_ITEM_FAMLY_NAME ;;
   }
 
   dimension: dbi_item_size_name {
     type: string
-    hidden:yes   sql: ${TABLE}.DBI_ITEM_SIZE_NAME ;;
+    label: "Item Size"
+    hidden:no   sql: ${TABLE}.DBI_ITEM_SIZE_NAME ;;
   }
 
   dimension: dbi_item_sub_catgry_name {
     type: string
+    label: "Sub Category"
     hidden:yes   sql: ${TABLE}.DBI_ITEM_SUB_CATGRY_NAME ;;
   }
 
@@ -84,27 +90,32 @@ view: pos_menu_item_d {
 
   dimension: famly_grp_name {
     type: string
-    hidden:yes   sql: ${TABLE}.FAMLY_GRP_NAME ;;
+    label: "Micros Family Group Name"
+    hidden:no   sql: ${TABLE}.FAMLY_GRP_NAME ;;
   }
 
   dimension: famly_grp_nbr {
     type: number
-    hidden:yes   sql: ${TABLE}.FAMLY_GRP_NBR ;;
+    label: "Micros Family Group Number"
+    hidden:no   sql: ${TABLE}.FAMLY_GRP_NBR ;;
   }
 
   dimension: item_brand_code {
     type: string
-    hidden:yes   sql: ${TABLE}.ITEM_BRAND_CODE ;;
+    label: "Micros Item Brand Code"
+    hidden:no  sql: ${TABLE}.ITEM_BRAND_CODE ;;
   }
 
   dimension: major_grp_name {
     type: string
-    hidden:yes   sql: ${TABLE}.MAJOR_GRP_NAME ;;
+    label: "Micros Major Group Name"
+    hidden:no   sql: ${TABLE}.MAJOR_GRP_NAME ;;
   }
 
   dimension: major_grp_nbr {
     type: number
-    hidden:yes   sql: ${TABLE}.MAJOR_GRP_NBR ;;
+    label: "Micros Major Group Number"
+    hidden:no   sql: ${TABLE}.MAJOR_GRP_NBR ;;
   }
 
   dimension: menu_item_mastr_name {
@@ -114,7 +125,8 @@ view: pos_menu_item_d {
 
   dimension: menu_item_name {
     type: string
-    hidden:yes   sql: ${TABLE}.MENU_ITEM_NAME ;;
+    label: "Micros Item Name"
+    hidden:no   sql: ${TABLE}.MENU_ITEM_NAME ;;
   }
 
   dimension: menu_item_nbr {
@@ -124,7 +136,8 @@ view: pos_menu_item_d {
 
   dimension: pos_menu_item_mastr_src_unq_id {
     type: string
-    hidden:yes   sql: ${TABLE}.POS_MENU_ITEM_MASTR_SRC_UNQ_ID ;;
+    label: "Micros Item ID"
+    hidden:no   sql: ${TABLE}.POS_MENU_ITEM_MASTR_SRC_UNQ_ID ;;
   }
 
   measure: count {
