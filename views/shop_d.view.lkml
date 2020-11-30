@@ -633,6 +633,7 @@ view: shop_d {
     type: number
     hidden: no
     label: "DMA Code"
+    map_layer_name: dma_layer
     sql: ${TABLE}.DMA ;;
   }
 

@@ -125,4 +125,6 @@ explore: pos_subcat_by_day_dayprt_grp_f {
 
 }
 
-explore: shop_d {}
+explore: shop_d {
+  label: "Shops"
+}
