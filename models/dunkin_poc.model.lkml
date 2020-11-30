@@ -9,7 +9,7 @@ datagroup: dunkin_poc_default_datagroup {
 }
 
 map_layer: dma_layer {
-  file: "/maps/dma_master_polygons.json"
+  file: "/maps/dma_master_polygons.topojson"
   property_key: "dma_code"
 }
 
