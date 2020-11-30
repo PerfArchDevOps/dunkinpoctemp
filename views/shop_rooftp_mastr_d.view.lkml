@@ -327,7 +327,8 @@ view: shop_rooftp_mastr_d {
 
   dimension: dma_nbr {
     type: number
-    hidden: yes
+    hidden: no
+    map_layer_name: dma_layer
     sql: ${TABLE}.DMA_NBR ;;
   }
 
