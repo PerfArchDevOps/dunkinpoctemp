@@ -494,13 +494,13 @@ view: shop_rooftp_mastr_d {
   }
 
   dimension: locatn_latitude_nbr {
-    type: location
+    type: number
     hidden: yes
     sql: ${TABLE}.LOCATN_LATITUDE_NBR ;;
   }
 
   dimension: locatn_longitude_nbr {
-    type: location
+    type: number
     hidden: yes
     sql: ${TABLE}.LOCATN_LONGITUDE_NBR ;;
   }
