@@ -120,6 +120,12 @@ explore: pos_subcat_by_day_dayprt_grp_f {
     sql_on: ${pos_subcat_by_day_dayprt_grp_f.dwh_item_sub_catgry_id} = ${pos_item_sub_catgry_d.dwh_item_sub_catgry_id} ;;
   }
 
+  join: shop_rooftp_mastr_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
+  }
+
 
 # explore: pos_subcat_by_wk_dayprt_grp_f {}
 
