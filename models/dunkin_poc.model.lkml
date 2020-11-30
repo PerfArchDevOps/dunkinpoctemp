@@ -8,6 +8,11 @@ datagroup: dunkin_poc_default_datagroup {
   max_cache_age: "1 hour"
 }
 
+map_layer: dma_layer {
+  file: "/maps/dma_master_polygons.json"
+  property_key: "dma"
+}
+
 persist_with: dunkin_poc_default_datagroup
 
 # explore: pos_brand_by_day_dayprt_grp_f {}
