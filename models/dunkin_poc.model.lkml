@@ -30,7 +30,8 @@ persist_with: dunkin_poc_default_datagroup
 explore: pos_item_by_day_f {
   sql_always_where: ${pos_item_by_day_f.yoy_sales_day_ind} = 1
   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
-  AND ${pos_item_by_day_f.transctn_bus_raw} = '12-NOV-2020';;
+  AND ${pos_item_by_day_f.transctn_bus_raw} = '12-NOV-2020'
+  AND ${pos_item_by_day_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
   join: dates {
     relationship: many_to_one
     type: inner
@@ -78,7 +79,8 @@ explore: pos_item_by_day_f {
 explore: pos_subcat_by_day_dayprt_grp_f{
 sql_always_where: ${pos_subcat_by_day_dayprt_grp_f.yoy_sales_day_ind} = 1
                   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
-                  AND ${pos_subcat_by_day_dayprt_grp_f.transctn_bus_raw} = '12-NOV-2020';;
+                  AND ${pos_subcat_by_day_dayprt_grp_f.transctn_bus_raw} = '12-NOV-2020'
+                  AND ${pos_subcat_by_day_dayprt_grp_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
   join: dates {
     relationship: many_to_one
     type: inner
