@@ -123,6 +123,6 @@ explore: pos_subcat_by_day_dayprt_grp_f {
 
 # explore: shop_brand_class_fl {}
 
-# explore: dbi_bi_user_access {}
-
 }
+
+explore: shop_d {}

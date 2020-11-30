@@ -629,9 +629,10 @@ view: shop_d {
     sql: ${TABLE}.DEV_TYPE_DESC ;;
   }
 
-  dimension: dma {
+  dimension: dma_code {
     type: number
-    hidden: yes
+    hidden: no
+    label: "DMA Code"
     sql: ${TABLE}.DMA ;;
   }
 
