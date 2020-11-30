@@ -32,6 +32,7 @@ explore: pos_item_by_day_f {
   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
   AND ${pos_item_by_day_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_item_by_day_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
+
   join: dates {
     relationship: many_to_one
     type: inner
@@ -70,7 +71,64 @@ explore: pos_item_by_day_f {
     sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
   }
 }
-#explore: pos_item_by_dayprt_f {}
+
+
+explore: pos_item_by_dayprt_f {
+  sql_always_where: ${pos_item_by_dayprt_f.yoy_sales_day_ind} = 1
+  AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
+  AND ${pos_item_by_dayprt_f.transctn_bus_raw} = '12-NOV-2020'
+  AND ${pos_item_by_dayprt_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
+
+  join: dates {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_dayprt_f.transctn_bus_raw} = ${dates.actual_date_raw};;
+  }
+
+  join: dayprt_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_dayprt_f.dwh_dayprt_id} = ${dayprt_d.dwh_dayprt_id};;
+  }
+
+  join: shop_brand_class_fl {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_dayprt_f.dwh_shop_brand_id} = ${shop_brand_class_fl.dwh_shop_brand_id}
+              AND ${pos_item_by_dayprt_f.dwh_shop_rooftp_id = ${shop_brand_class_fl.dwh_shop_rooftp_id}
+              AND ${pos_item_by_dayprt_f.transctn_bus_raw} = ${shop_brand_class_fl.shop_brand_class_raw}  };;
+  }
+
+  join: pos_menu_item_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_dayprt_f.dwh_pos_menu_item_id} = ${pos_menu_item_d.dwh_pos_menu_item_id};;
+  }
+
+  join: shop_brand_mastr_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_dayprt_f.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id};;
+  }
+
+  join: shop_addtnl_attrbts_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_dayprt_f.dwh_shop_brand_id} = ${shop_addtnl_attrbts_d.dwh_shop_brand_id} ;;
+  }
+
+  join: ovride_comp_day {
+    relationship: many_to_one
+    type: left_outer
+    sql_on:${pos_item_by_dayprt_f.transctn_bus_date} = ${ovride_comp_day.ovride_comp_date_date}
+      AND ${pos_item_by_dayprt_f.dwh_shop_brand_id} = ${ovride_comp_day.dwh_shop_brand_id};;
+  }
+    join: shop_rooftp_mastr_d {
+      relationship: many_to_one
+      type: inner
+      sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
+  }
+}
 
 #explore: pos_item_by_week_dayprt_f {}
 
@@ -131,6 +189,12 @@ sql_always_where: ${pos_subcat_by_day_dayprt_grp_f.yoy_sales_day_ind} = 1
     sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
   }
 
+  }
+
+  explore: shop_d {
+    label: "Shops"
+  }
+
 
 # explore: pos_subcat_by_wk_dayprt_grp_f {}
 
@@ -139,9 +203,3 @@ sql_always_where: ${pos_subcat_by_day_dayprt_grp_f.yoy_sales_day_ind} = 1
 # explore: pos_yoy_week_sales_f {}
 
 # explore: shop_brand_class_fl {}
-
-}
-
-explore: shop_d {
-  label: "Shops"
-}
