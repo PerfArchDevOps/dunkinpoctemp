@@ -23,6 +23,7 @@ view: pos_yoy_week_sales_f {
 
   dimension: dwh_shop_rooftp_id {
     type: number
+    hidden: yes
     sql: ${TABLE}.DWH_SHOP_ROOFTP_ID ;;
   }
 

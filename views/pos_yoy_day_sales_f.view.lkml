@@ -18,6 +18,7 @@ view: pos_yoy_day_sales_f {
 
   dimension: dwh_shop_brand_id {
     type: number
+    hidden: yes
     sql: ${TABLE}.DWH_SHOP_BRAND_ID ;;
   }
 
