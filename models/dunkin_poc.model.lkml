@@ -33,6 +33,8 @@ explore: pos_item_by_day_f {
   AND ${pos_item_by_day_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_item_by_day_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
 
+  label: "POS Item By Day"
+
   join: dates {
     relationship: many_to_one
     type: inner
