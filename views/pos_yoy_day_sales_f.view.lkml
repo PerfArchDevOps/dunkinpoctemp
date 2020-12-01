@@ -71,19 +71,24 @@ view: pos_yoy_day_sales_f {
     sql: ${TABLE}.TRANSCTN_BUS_DATE ;;
   }
 
-  measure: site_day_count {
-    label: "Site Day Count"
+  measure: site_day_count_sssd {
+    label: "Site Day Count SSSD"
     type: count
-    sql:  CASE ${TABLE}."SALES_IND_TY" = 1 THEN CAST( ${TABLE}."DWH_SHOP_ROOFTP_ID" AS VARCHAR(10))   ||
+    sql:  CAST( ${TABLE}."DWH_SHOP_ROOFTP_ID" AS VARCHAR(10))   ||
     CAST( ${TABLE}."TRANSCTN_BUS_DATE" AS VARCHAR(10))   END ;;
   drill_fields: []
   }
 
+  measure: site_count_sssd {
+    label: "Site Count SSSD"
+    type: count
+    sql:  CAST( ${TABLE}."DWH_SHOP_ROOFTP_ID" AS VARCHAR(10))  ;;
+    drill_fields: []
+  }
 
   measure: count {
     type: count
     drill_fields: []
   }
-
 
 }
