@@ -28,6 +28,9 @@ view: pos_yoy_day_sales_f {
     sql: ${TABLE}.DWH_SHOP_ROOFTP_ID ;;
   }
 
+
+
+
   dimension_group: dwh_updtd_datetm {
     type: time
     timeframes: [
@@ -68,8 +71,24 @@ view: pos_yoy_day_sales_f {
     sql: ${TABLE}.TRANSCTN_BUS_DATE ;;
   }
 
+  measure: site_day_count_sssd {
+    label: "Site Day Count SSSD"
+    type: count
+    sql:  CAST( ${TABLE}."DWH_SHOP_ROOFTP_ID" AS VARCHAR(10))   ||
+    CAST( ${TABLE}."TRANSCTN_BUS_DATE" AS VARCHAR(10))   END ;;
+  drill_fields: []
+  }
+
+  measure: site_count_sssd {
+    label: "Site Count SSSD"
+    type: count
+    sql:  CAST( ${TABLE}."DWH_SHOP_ROOFTP_ID" AS VARCHAR(10))  ;;
+    drill_fields: []
+  }
+
   measure: count {
     type: count
     drill_fields: []
   }
+
 }
