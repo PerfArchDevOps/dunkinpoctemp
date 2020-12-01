@@ -244,7 +244,7 @@ sql_always_where: ${pos_subcat_by_day_dayprt_grp_f.yoy_sales_day_ind} = 1
 
   explore: shop_d {
     label: "Shops"
-  }
+}
 
 
 # explore: pos_subcat_by_wk_dayprt_grp_f {}
@@ -254,3 +254,11 @@ sql_always_where: ${pos_subcat_by_day_dayprt_grp_f.yoy_sales_day_ind} = 1
 # explore: pos_yoy_week_sales_f {}
 
 # explore: shop_brand_class_fl {}
+
+# Testing filtered measures
+
+explore: filtered_pos_item_by_day_f {
+   view_name: pos_item_by_day_f
+    label: "Filtered POS Item By Day"
+    fields: [pos_item_by_day_f.transctn_bus_date,pos_item_by_day_f.net_sales_amt_this_week,pos_item_by_day_f.net_sales_amt_yesterday]
+ }

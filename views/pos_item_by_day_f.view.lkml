@@ -167,7 +167,7 @@ view: pos_item_by_day_f {
 
   dimension_group: transctn_bus {
     type: time
-    hidden: yes
+    hidden: no
     timeframes: [
       raw,
       date,
@@ -198,6 +198,24 @@ view: pos_item_by_day_f {
     type: sum
     sql: ((NVL(${net_sales_amt_base},0)/(NVL(${net_sales_amt_ly_base},0))-1)*100 ;;
   }
+
+# Testing filtered measures
+
+
+  measure: net_sales_amt_yesterday {
+    label: "Filtered Net Sales Amt SSSD Yesterday"
+    type: sum
+    filters: [transctn_bus_date: "yesterday"]
+    sql: ${TABLE}.NET_SALES_AMT ;;
+  }
+
+  measure: net_sales_amt_this_week {
+    label: "Filtered Net Sales Amt SSSD This Week"
+    type: sum
+    filters: [transctn_bus_date: "this week"]
+    sql: ${TABLE}.NET_SALES_AMT ;;
+  }
+
 
 
   measure: count {
