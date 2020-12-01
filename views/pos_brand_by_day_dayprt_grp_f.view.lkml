@@ -127,7 +127,7 @@ view: pos_brand_by_day_dayprt_grp_f {
   }
 
   measure: net_sales_amt {
-    label: "Net Sales Amt"
+    label: "Net Sales Amt SSSD"
     type: sum
     sql: ${TABLE}.NET_SALES_AMT ;;
   }
@@ -139,7 +139,7 @@ view: pos_brand_by_day_dayprt_grp_f {
   }
 
   measure: net_sales_amt_ly {
-    label: "Net Sales Amt LY"
+    label: "Net Sales Amt SSSD LY"
     type: sum
     sql: ${TABLE}.NET_SALES_AMT_LY ;;
   }
