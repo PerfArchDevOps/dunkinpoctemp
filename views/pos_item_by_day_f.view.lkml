@@ -209,6 +209,14 @@ view: pos_item_by_day_f {
     sql: ${TABLE}.NET_SALES_AMT ;;
   }
 
+  measure: net_sales_amt_this_week {
+    label: "Filtered Net Sales Amt SSSD This Week"
+    type: sum
+    filters: [transctn_bus_date: "this week"]
+    sql: ${TABLE}.NET_SALES_AMT ;;
+  }
+
+
 
   measure: count {
     hidden: yes
