@@ -132,9 +132,58 @@ explore: pos_item_by_dayprt_f {
   }
 }
 
-#explore: pos_item_by_week_dayprt_f {}
+explore: pos_item_by_week_dayprt_f {
+  sql_always_where: ${pos_item_by_week_dayprt_f.yoy_sales_week_ind} = 1
+  AND ${ovride_comp_week.ovride_comp_week_ind} IS NULL
+  AND ${pos_item_by_week_dayprt_f.transctn_bus_raw} = '12-NOV-2020'
+  AND ${pos_item_by_week_dayprt_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
+  join: dayprt_d {
+  relationship: many_to_one
+  type: inner
+  sql_on: ${pos_item_by_week_dayprt_f.dwh_dayprt_id} = ${dayprt_d.dwh_dayprt_id} ;;
+  }
 
-# explore: pos_item_by_week_f {}
+  join: shop_brand_class_fl {
+   relationship: many_to_one
+   type: inner
+   sql_on: ${pos_item_by_week_dayprt_f.dwh_shop_brand_id} = ${shop_brand_class_fl.dwh_shop_brand_id}
+          AND ${pos_item_by_week_dayprt_f.dwh_shop_rooftp_id} = ${shop_brand_class_fl.dwh_shop_rooftp_id}
+          AND ${pos_item_by_week_dayprt_f.transctn_bus_raw} = ${shop_brand_class_fl.shop_brand_class_raw};;
+  }
+
+  join: dates_week {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${dates_week.week_ending_raw} = ${pos_item_by_week_dayprt_f.transctn_bus_raw};;
+  }
+
+  join: shop_brand_mastr_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_week_dayprt_f.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id} ;;
+  }
+
+  join: shop_addtnl_attrbts_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_week_dayprt_f.dwh_shop_brand_id} = ${shop_addtnl_attrbts_d.dwh_shop_brand_id} ;;
+  }
+
+  join: shop_rooftp_mastr_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
+  }
+  join: ovride_comp_week {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${pos_item_by_week_dayprt_f.transctn_bus_raw} = ${ovride_comp_week.ovride_comp_raw}
+            AND ${pos_item_by_week_dayprt_f.dwh_shop_brand_id} = ${ovride_comp_week.dwh_shop_brand_id};;
+  }
+}
+
+
+explore: pos_item_by_week_f {}
 
 explore: pos_subcat_by_day_dayprt_grp_f{
 sql_always_where: ${pos_subcat_by_day_dayprt_grp_f.yoy_sales_day_ind} = 1
