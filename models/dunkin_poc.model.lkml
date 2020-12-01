@@ -79,7 +79,7 @@ explore: pos_item_by_dayprt_f {
   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
   AND ${pos_item_by_dayprt_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_item_by_dayprt_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
-  label: "Item by Daypart"
+  label: "POS Item by Daypart"
 
   join: dates {
     relationship: many_to_one
@@ -137,7 +137,7 @@ explore: pos_item_by_week_dayprt_f {
   AND ${ovride_comp_week.ovride_comp_week_ind} IS NULL
   AND ${pos_item_by_week_dayprt_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_item_by_week_dayprt_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
-  label: "Item by Week Daypart"
+  label: "POS Item by Week Daypart"
 
   join: dayprt_d {
   relationship: many_to_one
@@ -191,7 +191,7 @@ explore: pos_item_by_week_f {
   AND ${ovride_comp_week.ovride_comp_week_ind} IS NULL
   AND ${pos_item_by_week_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_item_by_week_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
-  label: "Item by Week"
+  label: "POS Item by Week"
 
   join: dates_week {
     relationship: many_to_one
@@ -238,7 +238,7 @@ sql_always_where: ${pos_subcat_by_day_dayprt_grp_f.yoy_sales_day_ind} = 1
                   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
                   AND ${pos_subcat_by_day_dayprt_grp_f.transctn_bus_raw} = '12-NOV-2020'
                   AND ${pos_subcat_by_day_dayprt_grp_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
-label: "Sub Category by Day Daypart"
+label: "POS Sub Category by Day Daypart"
   join: dates {
     relationship: many_to_one
     type: inner
