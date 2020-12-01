@@ -36,7 +36,7 @@ view: pos_item_brand_d {
   dimension: item_brand_name {
     type: string
     label: "Item Brand"
-    hidden:yes   sql: ${TABLE}.ITEM_BRAND_NAME ;;
+    hidden:no   sql: ${TABLE}.ITEM_BRAND_NAME ;;
   }
 
   dimension_group: last_updt {
@@ -66,6 +66,7 @@ view: pos_item_brand_d {
 
   measure: count {
     type: count
+    hidden: yes
     drill_fields: [item_brand_name]
   }
 }
