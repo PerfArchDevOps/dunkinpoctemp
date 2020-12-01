@@ -1,5 +1,5 @@
 view: shop_brand_class_fl {
-  label: "Shop Brand Class FL"
+  label: "Dim - Shop Brand Class FL"
   sql_table_name: BAL3.SHOP_BRAND_CLASS_FL ;;
 
   dimension: class_code {
