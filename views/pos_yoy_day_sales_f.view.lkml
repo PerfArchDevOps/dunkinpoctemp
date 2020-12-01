@@ -73,7 +73,7 @@ view: pos_yoy_day_sales_f {
 
   measure: site_day_count_sssd {
     label: "Site Day Count SSSD"
-    type: count
+    type: count_distinct
     sql:  CAST( ${TABLE}."DWH_SHOP_ROOFTP_ID" AS VARCHAR(10))   ||
     CAST( ${TABLE}."TRANSCTN_BUS_DATE" AS VARCHAR(10))   END ;;
   drill_fields: []
@@ -81,7 +81,7 @@ view: pos_yoy_day_sales_f {
 
   measure: site_count_sssd {
     label: "Site Count SSSD"
-    type: count
+    type: count_distinct
     sql:  CAST( ${TABLE}."DWH_SHOP_ROOFTP_ID" AS VARCHAR(10))  ;;
     drill_fields: []
   }

@@ -402,8 +402,8 @@ explore: pos_yoy_day_sales_f {
 
 # Testing filtered measures
 
-explore: filtered_pos_item_by_day_f {
-   view_name: pos_item_by_day_f
-    label: "Filtered POS Item By Day"
-    fields: [pos_item_by_day_f.transctn_bus_date,pos_item_by_day_f.net_sales_amt_this_week,pos_item_by_day_f.net_sales_amt_yesterday]
- }
+#explore: filtered_pos_item_by_day_f {
+#   view_name: pos_item_by_day_f
+#    label: "Filtered POS Item By Day"
+#    fields: [pos_item_by_day_f.transctn_bus_date,pos_item_by_day_f.net_sales_amt_this_week,pos_item_by_day_f.net_sales_amt_yesterday]
+# }
