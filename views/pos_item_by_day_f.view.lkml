@@ -167,7 +167,7 @@ view: pos_item_by_day_f {
 
   dimension_group: transctn_bus {
     type: time
-    hidden: yes
+    hidden: no
     timeframes: [
       raw,
       date,
