@@ -174,6 +174,7 @@ explore: pos_item_by_week_dayprt_f {
     type: inner
     sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
   }
+
   join: ovride_comp_week {
     relationship: many_to_one
     type: left_outer
@@ -183,7 +184,47 @@ explore: pos_item_by_week_dayprt_f {
 }
 
 
-explore: pos_item_by_week_f {}
+explore: pos_item_by_week_f {
+
+  join: dates_week {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_week_f.transctn_bus_raw} = ${dates_week.week_ending_raw} ;;
+  }
+
+  join: ovride_comp_week {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${pos_item_by_week_f.transctn_bus_raw} = ${ovride_comp_week.ovride_comp_raw}
+            AND ${pos_item_by_week_f.dwh_shop_brand_id} = ${ovride_comp_week.dwh_shop_brand_id};;
+  }
+
+  join: shop_brand_class_fl {
+   relationship: many_to_one
+   type: inner
+   sql_on: ${pos_item_by_week_f.dwh_shop_brand_id} = ${shop_brand_class_fl.dwh_shop_brand_id}
+          AND ${pos_item_by_week_f.dwh_shop_rooftp_id} = ${shop_brand_class_fl.dwh_shop_rooftp_id}
+          AND ${pos_item_by_week_f.transctn_bus_raw} = ${shop_brand_class_fl.shop_brand_class_raw};;
+  }
+
+  join: shop_brand_mastr_d {
+   relationship: many_to_one
+   type: inner
+    sql_on: ${pos_item_by_week_f.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id} ;;
+  }
+
+  join: shop_addtnl_attrbts_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_week_f.dwh_shop_brand_id} = ${shop_addtnl_attrbts_d.dwh_shop_brand_id};;
+  }
+
+  join: shop_rooftp_mastr_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
+  }
+}
 
 explore: pos_subcat_by_day_dayprt_grp_f{
 sql_always_where: ${pos_subcat_by_day_dayprt_grp_f.yoy_sales_day_ind} = 1
