@@ -196,13 +196,13 @@ view: pos_item_by_week_dayprt_f {
   measure: net_sales_growth_sssd {
     label: "Net Sales Growth SSSD"
     type: sum
-    sql: ifnull(${net_sales_amt_base},0)-ifnull(${net_sales_amt_ly_base},0) ;;
+    sql:${TABLE}.NET_SALES_AMT - ${TABLE}.NET_SALES_AMT_LY  ;;
   }
 
   measure: net_sales_growth_pct_sssd {
     label: "Net Sales Growth % SSSD"
-    type: sum
-    sql: (ifnull(${net_sales_amt_base},0)/ifnull(${net_sales_amt_ly_base},0)*100) ;;
+    type: number
+    sql: ((${net_sales_growth_sssd}/${net_sales_amt_ly})*100) ;;
   }
 
 
