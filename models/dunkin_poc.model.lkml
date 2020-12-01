@@ -67,6 +67,12 @@ explore: pos_brand_by_day_dayprt_grp_f {
     type: inner
     sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
   }
+
+  join: dayprt_grp_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_brand_by_day_dayprt_grp_f.dwh_dayprt_grp_id} = ${dayprt_grp_d.dwh_dayprt_grp_id} ;;
+  }
 }
 
 # explore: pos_brand_by_week_dayprt_grp_f {}
