@@ -15,7 +15,65 @@ map_layer: dma_layer {
 
 persist_with: dunkin_poc_default_datagroup
 
-# explore: pos_brand_by_day_dayprt_grp_f {}
+
+explore: pos_brand_by_day_dayprt_grp_f {
+  sql_always_where: ${pos_brand_by_day_dayprt_grp_f.yoy_sales_day_ind} = 1
+  AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
+  AND ${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} = '12-NOV-2020'
+  AND ${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
+  label: "POS Brand by Day Daypart Group"
+
+  join: dates {
+   relationship: many_to_one
+   type: inner
+  sql_on: ${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} = ${dates.actual_date_raw} ;;
+  }
+
+  join: shop_brand_class_fl {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_brand_by_day_dayprt_grp_f.dwh_shop_brand_id} = ${shop_brand_class_fl.dwh_shop_brand_id}
+              AND ${pos_brand_by_day_dayprt_grp_f.dwh_shop_rooftp_id = ${shop_brand_class_fl.dwh_shop_rooftp_id}
+              AND ${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} = ${shop_brand_class_fl.shop_brand_class_raw}  };;
+  }
+
+  join: pos_item_brand_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_brand_by_day_dayprt_grp_f.dwh_item_brand_id} = ${pos_item_brand_d.dwh_item_brand_id} ;;
+  }
+
+  join: shop_brand_mastr_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_brand_by_day_dayprt_grp_f.dwh_shop_brand_id} ${shop_brand_mastr_d.dwh_shop_brand_id} ;;
+  }
+
+  join: shop_addtnl_attrbts_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_brand_by_day_dayprt_grp_f.dwh_shop_brand_id} = ${shop_addtnl_attrbts_d.dwh_shop_brand_id} ;;
+  }
+
+  join: ovride_comp_day {
+    relationship: many_to_one
+    type: left_outer
+    sql_on:${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} = ${ovride_comp_day.ovride_comp_date_raw}
+      AND ${pos_brand_by_day_dayprt_grp_f.dwh_shop_brand_id} = ${ovride_comp_day.dwh_shop_brand_id};;
+  }
+
+  join: shop_rooftp_mastr_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
+  }
+
+  join: dayprt_grp_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_brand_by_day_dayprt_grp_f.dwh_dayprt_grp_id} = ${dayprt_grp_d.dwh_dayprt_grp_id} ;;
+  }
+}
 
 # explore: pos_brand_by_week_dayprt_grp_f {}
 
