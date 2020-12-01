@@ -199,6 +199,16 @@ view: pos_item_by_day_f {
     sql: ((NVL(${net_sales_amt_base},0)/(NVL(${net_sales_amt_ly_base},0))-1)*100 ;;
   }
 
+# Testing filtered measures
+
+
+  measure: net_sales_amt_yesterday {
+    label: "Filtered Net Sales Amt SSSD Yesterday"
+    type: sum
+    filters: [transctn_bus_date: "yesterday"]
+    sql: ${TABLE}.NET_SALES_AMT ;;
+  }
+
 
   measure: count {
     hidden: yes
