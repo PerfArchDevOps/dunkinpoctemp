@@ -349,9 +349,6 @@ label: "POS Sub Category by Day Daypart"
 
   }
 
-  explore: shop_d {
-    label: "Shops"
-}
 
 
 # explore: pos_subcat_by_wk_dayprt_grp_f {}
