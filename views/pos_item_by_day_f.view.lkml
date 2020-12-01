@@ -1,4 +1,5 @@
 view: pos_item_by_day_f {
+  label: "Fact - POS Item by Day"
   sql_table_name: BAL3.POS_ITEM_BY_DAY_F ;;
 
   dimension: discnt_amt_base {

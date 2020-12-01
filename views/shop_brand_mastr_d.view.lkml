@@ -1,4 +1,5 @@
 view: shop_brand_mastr_d {
+  label: "Dim - Shop Brand Master"
   sql_table_name: BAL3.SHOP_BRAND_MASTR_D ;;
 
   dimension_group: actl_refrbsh {

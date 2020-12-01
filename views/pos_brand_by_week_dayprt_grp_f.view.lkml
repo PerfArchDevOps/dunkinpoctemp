@@ -1,4 +1,5 @@
 view: pos_brand_by_week_dayprt_grp_f {
+  label: "Fact - POS Brand by Week Dayprt Grp"
   sql_table_name: BAL3.POS_BRAND_BY_WEEK_DAYPRT_GRP_F ;;
 
   dimension: discnt_amt_base {

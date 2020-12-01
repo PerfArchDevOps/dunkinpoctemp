@@ -1,4 +1,5 @@
 view: pos_brand_by_day_dayprt_grp_f {
+  label: "Fact - POS Brandy by Day Dayprt Grp"
   sql_table_name: BAL3.POS_BRAND_BY_DAY_DAYPRT_GRP_F ;;
 
   dimension: discnt_amt_base {

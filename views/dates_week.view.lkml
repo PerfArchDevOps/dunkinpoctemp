@@ -1,4 +1,5 @@
 view: dates_week {
+  label: "Dim - Dates Week"
   sql_table_name: BAL.DATES_WEEK ;;
 
   dimension: calendar_month {

@@ -1,4 +1,5 @@
 view: dayprt_grp_d {
+  label: "Dim - Daypart Group"
   sql_table_name: BAL.DAYPRT_GRP_D ;;
 
   dimension: actv_ind {

@@ -1,4 +1,5 @@
 view: ovride_comp_day {
+  label: "Dim - Ovride Comp Day"
   sql_table_name: BAL3.OVRIDE_COMP_DAY;;
 
   dimension: dwh_shop_brand_id {

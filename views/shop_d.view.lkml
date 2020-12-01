@@ -1,4 +1,5 @@
 view: shop_d {
+  label: "Dim - Shop"
   sql_table_name: BAL2.SHOP_D ;;
 
   dimension_group: act_ref {

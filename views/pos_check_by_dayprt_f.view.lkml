@@ -1,4 +1,5 @@
 view: pos_check_by_dayprt_f {
+  label: "Fact - POS Check by Dayprt"
   sql_table_name: BAL3.POS_CHECK_BY_DAYPRT_F ;;
 
   dimension: check_cnt_base {

@@ -1,4 +1,5 @@
 view: dayprt_hour_d {
+  label: "Dim - Daypart Hour"
   sql_table_name: BAL.DAYPRT_HOUR_D ;;
 
   dimension: dayprt_duratn_in_min_nbr {

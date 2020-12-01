@@ -1,4 +1,5 @@
 view: shop_locatn_d {
+  label: "Dim - Shop Location"
   sql_table_name: BAL2.SHOP_LOCATN_D ;;
 
   dimension: actv_flg {

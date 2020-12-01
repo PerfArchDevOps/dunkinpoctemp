@@ -1,4 +1,5 @@
 view: pos_item_brand_d {
+  label: "Dim - POS Item Brand"
   sql_table_name: BAL3.POS_ITEM_BRAND_D ;;
 
   dimension: actv_flg {
