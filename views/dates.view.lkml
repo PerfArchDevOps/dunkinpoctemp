@@ -1,4 +1,5 @@
 view: dates {
+  label: "Dim - Dates"
   sql_table_name: BAL.DATES ;;
   drill_fields: [dates_id]
 

@@ -1,4 +1,5 @@
 view: pos_check_by_week_dayprt_f {
+  label: "Fact - POS Check by Week Dayprt"
   sql_table_name: BAL3.POS_CHECK_BY_WEEK_DAYPRT_F ;;
 
   dimension: check_cnt_base {

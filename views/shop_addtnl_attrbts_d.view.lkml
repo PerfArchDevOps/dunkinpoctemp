@@ -1,4 +1,5 @@
 view: shop_addtnl_attrbts_d {
+  label: "Dim - Shop Additional Attributes"
   sql_table_name: BAL3.SHOP_ADDTNL_ATTRBTS_D ;;
 
   dimension_group: dwh_creatd_datetm {

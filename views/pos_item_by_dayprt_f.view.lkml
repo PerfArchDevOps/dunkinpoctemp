@@ -1,4 +1,5 @@
 view: pos_item_by_dayprt_f {
+  label: "Fact - POS Item by Daypart"
   sql_table_name: BAL3.POS_ITEM_BY_DAYPRT_F ;;
 
   dimension: discnt_amt_base {

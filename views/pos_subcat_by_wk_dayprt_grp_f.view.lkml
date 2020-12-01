@@ -1,4 +1,5 @@
 view: pos_subcat_by_wk_dayprt_grp_f {
+  label: "Fact - POS Sub Category by Week Daypart"
   sql_table_name: BAL3.POS_SUBCAT_BY_WK_DAYPRT_GRP_F ;;
 
   dimension: discnt_amt {

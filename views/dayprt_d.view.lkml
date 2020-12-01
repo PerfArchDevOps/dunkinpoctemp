@@ -1,4 +1,5 @@
 view: dayprt_d {
+  label: "Dim - Daypart"
   sql_table_name: BAL.DAYPRT_D ;;
 
   dimension: br_dayprt_super_grp_code {

@@ -1,4 +1,5 @@
 view: pos_transctn_grpng_d {
+  label: "Dim - POS Transaction Grouping"
   sql_table_name: BAL3.POS_TRANSCTN_GRPNG_D ;;
 
   dimension: actv_flg {

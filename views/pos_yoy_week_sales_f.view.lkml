@@ -1,4 +1,5 @@
 view: pos_yoy_week_sales_f {
+  label: "Fact - POS YOY Week Sales"
   sql_table_name: BAL3.POS_YOY_WEEK_SALES_F ;;
 
   dimension_group: dwh_creatd_datetm {

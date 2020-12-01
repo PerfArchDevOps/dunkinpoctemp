@@ -1,4 +1,5 @@
 view: location_d {
+  label: "Dim - Location"
   sql_table_name: BAL.LOCATION_D ;;
 
   dimension: bi_securty_fmd_name {

@@ -1,4 +1,5 @@
 view: dayprt_qtr_hour_d {
+  label: "Dim - Daypart Qtr Hour"
   sql_table_name: BAL.DAYPRT_QTR_HOUR_D ;;
 
   dimension: br_dayprt_super_grp_code {

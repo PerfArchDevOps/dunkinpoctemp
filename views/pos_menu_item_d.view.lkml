@@ -1,4 +1,5 @@
 view: pos_menu_item_d {
+  label: "Dim - POS Menu Item"
   sql_table_name: BAL3.POS_MENU_ITEM_D ;;
 
   dimension: actv_flg {

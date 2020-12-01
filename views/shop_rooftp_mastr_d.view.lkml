@@ -1,4 +1,5 @@
 view: shop_rooftp_mastr_d {
+  label: "Dim - Shop Rooftop Master"
   sql_table_name: BAL3.SHOP_ROOFTP_MASTR_D ;;
 
   dimension: anchr_pfcntr {
