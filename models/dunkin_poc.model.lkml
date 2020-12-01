@@ -46,7 +46,7 @@ explore: pos_brand_by_day_dayprt_grp_f {
   join: shop_brand_mastr_d {
     relationship: many_to_one
     type: inner
-    sql_on: ${pos_brand_by_day_dayprt_grp_f.dwh_shop_brand_id} ${shop_brand_mastr_d.dwh_shop_brand_id} ;;
+    sql_on: ${pos_brand_by_day_dayprt_grp_f.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id} ;;
   }
 
   join: shop_addtnl_attrbts_d {
