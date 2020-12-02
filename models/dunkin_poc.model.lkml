@@ -358,8 +358,10 @@ explore: pos_check_by_week_f {
 explore: pos_item_by_day_f {
   sql_always_where: ${pos_item_by_day_f.yoy_sales_day_ind} = 1
   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
-  AND ${pos_item_by_day_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_item_by_day_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
+  always_filter: {
+    filters: [pos_item_by_day_f.transctn_bus_date: "2020-11-12"]
+  }
   label: "POS Item By Day"
 
   join: dates {
