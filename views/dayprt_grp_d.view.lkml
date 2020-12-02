@@ -9,17 +9,20 @@ view: dayprt_grp_d {
 
   dimension: br_dayprt_super_grp_code {
     type: string
-    hidden:yes   sql: ${TABLE}.BR_DAYPRT_SUPER_GRP_CODE ;;
+    label: "BR Daypart Super Group"
+    hidden:no   sql: ${TABLE}.BR_DAYPRT_SUPER_GRP_CODE ;;
   }
 
   dimension: dayprt_grp_code {
     type: string
-    hidden:yes   sql: ${TABLE}.DAYPRT_GRP_CODE ;;
+    label: "Daypart Group"
+    hidden:no   sql: ${TABLE}.DAYPRT_GRP_CODE ;;
   }
 
   dimension: dayprt_grp_desc {
     type: string
-    hidden:yes   sql: ${TABLE}.DAYPRT_GRP_DESC ;;
+    label: "Daypart Group Description"
+    hidden:no   sql: ${TABLE}.DAYPRT_GRP_DESC ;;
   }
 
   dimension: dd_dayprt_super_grp_code {
