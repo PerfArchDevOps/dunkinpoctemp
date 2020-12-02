@@ -717,7 +717,7 @@ explore: pos_yoy_week_sales_f {
 explore: pos_yoy_day_sales_ly_f {
   sql_always_where: ${pos_yoy_day_sales_ly_f.sales_ind_ty} = 1
   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
-  AND ${pos_yoy_day_sales_ly_f.transctn_bus_raw} = timestampadd(SQL_TSI_DAY,-364,'12-nov-2020'}
+  AND ${pos_yoy_day_sales_ly_f.transctn_bus_raw} = timestampadd(SQL_TSI_DAY,-364,'12-nov-2020')
  -- AND ${pos_yoy_day_sales_ly_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_yoy_day_sales_ly_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
   label: "POS YOY Day Sales LY"
