@@ -712,7 +712,52 @@ explore: pos_yoy_week_sales_f {
     type: inner
     sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
   }
+}
 
+explore: pos_yoy_day_sales_ly_f {
+  sql_always_where: ${pos_yoy_day_sales_ly_f.sales_ind_ty} = 1
+  AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
+  AND ${pos_yoy_day_sales_ly_f.transctn_bus_raw} = '12-NOV-2020'
+  AND ${pos_yoy_day_sales_ly_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
+  label: "POS YOY Day Sales LY"
+
+  join: dates{
+    relationship: many_to_one
+    type: inner
+    sql: ${pos_yoy_day_sales_ly_f.transctn_bus_raw} = timestampadd(SQL_TSI_DAY,-364,${dates.actual_date_raw}) ;;
+  }
+
+  join: shop_addtnl_attrbts_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_yoy_day_sales_ly_f.dwh_shop_brand_id} = ${shop_addtnl_attrbts_d.dwh_shop_brand_id} ;;
+  }
+
+  join: shop_brand_mastr_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_yoy_day_sales_ly_f.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id} ;;
+  }
+
+  join: shop_brand_class_fl {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_yoy_day_sales_ly_f.dwh_shop_brand_id} = ${shop_brand_class_fl.dwh_shop_brand_id}
+      AND ${pos_yoy_day_sales_ly_f.transctn_bus_raw} = ${shop_brand_class_fl.shop_brand_class_raw};;
+  }
+
+  join: ovride_comp_day {
+    relationship: many_to_one
+    type: left_outer
+    sql_on:${pos_yoy_day_sales_ly_f.transctn_bus_date} = ${ovride_comp_day.ovride_comp_date_date}
+      AND ${pos_yoy_day_sales_ly_f.dwh_shop_brand_id} = ${ovride_comp_day.dwh_shop_brand_id};;
+  }
+
+  join: shop_rooftp_mastr_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
+  }
 
 }
 
