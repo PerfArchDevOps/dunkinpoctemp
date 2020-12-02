@@ -1,4 +1,4 @@
-view: pos_yoy_day_sales_f {
+view: pos_yoy_day_sales_ly_f {
   label: "Fact - POS YOY Day Sales"
   sql_table_name: BAL3.POS_YOY_DAY_SALES_F ;;
 
@@ -30,9 +30,6 @@ view: pos_yoy_day_sales_f {
     sql: ${TABLE}.DWH_SHOP_ROOFTP_ID ;;
   }
 
-
-
-
   dimension_group: dwh_updtd_datetm {
     type: time
     timeframes: [
@@ -45,7 +42,7 @@ view: pos_yoy_day_sales_f {
     ]
     convert_tz: no
     datatype: date
-    hidden: yes
+    hidden:yes
     sql: ${TABLE}.DWH_UPDTD_DATETM ;;
   }
 
@@ -71,20 +68,20 @@ view: pos_yoy_day_sales_f {
     ]
     convert_tz: no
     datatype: date
-    hidden: yes
+    hidden: no
     sql: ${TABLE}.TRANSCTN_BUS_DATE ;;
   }
 
   measure: site_day_count_sssd {
-    label: "Site Day Count SSSD"
+    label: "Site Day Count SSSD LY"
     type: count_distinct
     sql:  CAST( ${TABLE}."DWH_SHOP_ROOFTP_ID" AS VARCHAR(10))   ||
-    CAST( ${TABLE}."TRANSCTN_BUS_DATE" AS VARCHAR(10)) ;;
-  drill_fields: []
+      CAST( ${TABLE}."TRANSCTN_BUS_DATE" AS VARCHAR(10)) ;;
+    drill_fields: []
   }
 
   measure: site_count_sssd {
-    label: "Site Count SSSD"
+    label: "Site Count SSSD LY"
     type: count_distinct
     sql:  CAST( ${TABLE}."DWH_SHOP_ROOFTP_ID" AS VARCHAR(10))  ;;
     drill_fields: []
