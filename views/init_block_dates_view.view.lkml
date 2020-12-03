@@ -233,6 +233,7 @@ view: init_block_dates_view {
 
     dimension: date {
       type: date
+      primary_key: yes
       sql: ${TABLE}."Date" ;;
     }
 
