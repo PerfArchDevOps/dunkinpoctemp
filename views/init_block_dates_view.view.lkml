@@ -1,4 +1,4 @@
-view: init_block_view {
+view: init_block_dates_view {
     derived_table: {
       sql: SELECT TRUNC (sysdate) "Date", TRUNC (sysdate, 'YEAR') "YTD_START"
            , TRUNC (sysdate) - 1 "BR_Yesterday",

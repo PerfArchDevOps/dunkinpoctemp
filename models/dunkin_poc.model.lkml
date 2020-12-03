@@ -763,5 +763,5 @@ explore: pos_yoy_day_sales_ly_f {
 
 }
 
-explore: init_block_view
+explore:init_block_dates_view
 {label: "Init Block for Dates"}
