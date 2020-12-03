@@ -3,6 +3,7 @@ view: perks_membr_summry_actv_f {
 
   dimension: actv_weeks_nbr {
     type: number
+    label: "Active Type"
     sql: ${TABLE}.ACTV_WEEKS_NBR ;;
   }
 
@@ -233,5 +234,30 @@ view: perks_membr_summry_actv_f {
   measure: count {
     type: count
     drill_fields: []
+  }
+
+  measure: Perks_Trial_Customer_Count{
+    type: count_distinct
+    sql: CASE WHEN ${perks_transctn_cnt} > 0 THEN ${epsilon_profile_id} END ;;
+  }
+
+  measure: Perks_Sales_Amount_Sum {
+    type: sum
+    sql: ${perks_sales_amt} ;;
+  }
+
+  measure: AVG_Weekly_Spend{
+    type: number
+    sql: ${Perks_Sales_Amount_Sum}/${Perks_Trial_Customer_Count}/${actv_weeks_nbr} ;;
+  }
+
+  measure: sum_perks_transctn_cnt {
+    type: sum
+    sql: ${perks_transctn_cnt} ;;
+  }
+
+  measure: avg_weekly_visits{
+    type: number
+    sql: ${sum_perks_transctn_cnt}/${Perks_Trial_Customer_Count}/${actv_weeks_nbr} ;;
   }
 }
