@@ -771,5 +771,26 @@ explore: pos_yoy_day_sales_ly_f {
 
 }
 
+
+explore: perks_membr_summry_actv_f {
+
+
+  join: dbi_membrs {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${perks_membr_summry_actv_f.epsilon_profile_id}= ${dbi_membrs.epsilon_profile_id} ;;
+  }
+}
+
+
+
+# Testing filtered measures
+
+#explore: filtered_pos_item_by_day_f {
+#   view_name: pos_item_by_day_f
+#    label: "Filtered POS Item By Day"
+#    fields: [pos_item_by_day_f.transctn_bus_date,pos_item_by_day_f.net_sales_amt_this_week,pos_item_by_day_f.net_sales_amt_yesterday]
+# }
+
 explore:init_block_dates_view
 {label: "Init Block for Dates"}
