@@ -763,6 +763,18 @@ explore: pos_yoy_day_sales_ly_f {
 
 }
 
+explore: perks_membr_summry_actv_f {
+
+
+  join: dbi_membrs {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${perks_membr_summry_actv_f.epsilon_profile_id}= ${dbi_membrs.epsilon_profile_id} ;;
+  }
+}
+
+
+
 # Testing filtered measures
 
 #explore: filtered_pos_item_by_day_f {
