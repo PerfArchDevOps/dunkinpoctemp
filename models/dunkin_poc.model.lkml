@@ -83,13 +83,6 @@ explore: pos_brand_by_week_dayprt_grp_f {
 
   label: "POS Brand by Week Daypart Group"
 
-
-  join: init_block_dates_view {
-    relationship: many_to_one
-    type: inner
-    sql:  1=1;;
-    }
-
   join: dates_week {
     relationship: many_to_one
     type: inner
@@ -682,8 +675,9 @@ explore: pos_yoy_day_sales_f {
 explore: pos_yoy_week_sales_f {
   sql_always_where: ${pos_yoy_week_sales_f.sales_ind_ty} = 1
   AND ${ovride_comp_week.ovride_comp_week_ind} IS NULL
-  AND ${pos_yoy_week_sales_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_yoy_week_sales_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
+#  AND ${pos_yoy_week_sales_f.transctn_bus_raw} = '12-NOV-2020'
+
   label: "POS YOY Week Sales"
   join: dates_week {
     relationship: many_to_one
