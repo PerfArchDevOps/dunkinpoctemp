@@ -34,7 +34,7 @@ view: dates_week {
 
   dimension: fiscal_week {
     type: date
-    sql: ${TABLE}.FISCAL_WEEK ;;
+    sql: to_date(${TABLE}.FISCAL_WEEK,'YYYY-MM-DD') ;;
   }
 
   dimension: fiscal_year {
