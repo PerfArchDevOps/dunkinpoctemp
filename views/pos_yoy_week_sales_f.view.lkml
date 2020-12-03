@@ -71,11 +71,7 @@ view: pos_yoy_week_sales_f {
   measure: site_count_sssd {
     label: "Site Week Count SSSW"
     type: count_distinct
-    sql:  CAST( ${TABLE}."DWH_SHOP_ROOFTP_ID" AS VARCHAR(10)) ||
-    CAST( ${TABLE}${transctn_bus_date}."TRANSCTN_BUS_DATE"  as varchar(10))
-
-
-;;
+    sql:  CAST( ${TABLE}."DWH_SHOP_ROOFTP_ID" AS VARCHAR(10)) || CAST( ${TABLE}."TRANSCTN_BUS_DATE"  as varchar(10)) ;;
     drill_fields: []
   }
 
