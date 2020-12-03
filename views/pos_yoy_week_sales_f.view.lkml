@@ -68,6 +68,13 @@ view: pos_yoy_week_sales_f {
     sql: ${TABLE}.TRANSCTN_BUS_DATE ;;
   }
 
+  measure: site_count_sssd {
+    label: "Site Week Count SSSW"
+    type: count_distinct
+    sql:  CAST( ${TABLE}."DWH_SHOP_ROOFTP_ID" AS VARCHAR(10))  ;;
+    drill_fields: []
+  }
+
   measure: count {
     type: count
     drill_fields: []
