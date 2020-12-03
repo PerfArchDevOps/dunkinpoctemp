@@ -33,7 +33,7 @@ view: dates_week {
   }
 
   dimension: fiscal_week {
-    type: string
+    type: date
     sql: ${TABLE}.FISCAL_WEEK ;;
   }
 
