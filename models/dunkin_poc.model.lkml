@@ -82,6 +82,11 @@ explore: pos_brand_by_week_dayprt_grp_f {
   AND ${pos_brand_by_week_dayprt_grp_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
   label: "POS Brand by Week Daypart Group"
 
+  join: init_block_dates_view {
+    relationship: many_to_one
+    type: cross
+    }
+
   join: dates_week {
     relationship: many_to_one
     type: inner
