@@ -11,6 +11,7 @@ view: pos_brand_by_week_dayprt_grp_f {
   measure: discnt_amt {
     label: "Discount Amt"
     type: number
+    hidden: yes
     sql: ${TABLE}.DISCNT_AMT ;;
   }
 
@@ -127,8 +128,8 @@ view: pos_brand_by_week_dayprt_grp_f {
   }
 
   measure: net_sales_amt {
-    label: "Net Sales Amt"
-    type: number
+    label: "Net Sales Amt SSSW"
+    type: sum
     sql: ${TABLE}.NET_SALES_AMT ;;
   }
 
@@ -139,8 +140,8 @@ view: pos_brand_by_week_dayprt_grp_f {
   }
 
   measure: net_sales_amt_ly {
-    label: "Net Sales Amt LY"
-    type: number
+    label: "Net Sales Amt SSSW LY"
+    type: sum
     sql: ${TABLE}.NET_SALES_AMT_LY ;;
   }
 

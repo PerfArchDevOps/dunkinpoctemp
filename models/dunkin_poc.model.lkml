@@ -78,9 +78,17 @@ explore: pos_brand_by_day_dayprt_grp_f {
 explore: pos_brand_by_week_dayprt_grp_f {
   sql_always_where: ${pos_brand_by_week_dayprt_grp_f.yoy_sales_week_ind} = 1
   AND ${ovride_comp_week.ovride_comp_week_ind} IS NULL
-  AND ${pos_brand_by_week_dayprt_grp_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_brand_by_week_dayprt_grp_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
+#   AND ${pos_brand_by_week_dayprt_grp_f.transctn_bus_raw} = '12-NOV-2020'
+
   label: "POS Brand by Week Daypart Group"
+
+
+  join: init_block_dates_view {
+    relationship: many_to_one
+    type: inner
+    sql:  1=1;;
+    }
 
   join: dates_week {
     relationship: many_to_one
@@ -763,6 +771,7 @@ explore: pos_yoy_day_sales_ly_f {
 
 }
 
+
 explore: perks_membr_summry_actv_f {
 
 
@@ -782,3 +791,6 @@ explore: perks_membr_summry_actv_f {
 #    label: "Filtered POS Item By Day"
 #    fields: [pos_item_by_day_f.transctn_bus_date,pos_item_by_day_f.net_sales_amt_this_week,pos_item_by_day_f.net_sales_amt_yesterday]
 # }
+
+explore:init_block_dates_view
+{label: "Init Block for Dates"}
