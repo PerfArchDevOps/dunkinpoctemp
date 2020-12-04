@@ -305,8 +305,9 @@ explore: pos_check_by_week_dayprt_f {
 explore: pos_check_by_week_f {
   sql_always_where: ${pos_check_by_week_f.yoy_sales_week_ind} = 1
   AND ${ovride_comp_week.ovride_comp_week_ind} IS NULL
-  AND ${pos_check_by_week_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_check_by_week_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
+#   AND ${pos_check_by_week_f.transctn_bus_raw} = '12-NOV-2020'
+
   label: "POS Check by Week "
 
   join: dates_week {
