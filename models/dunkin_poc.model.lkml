@@ -313,7 +313,8 @@ explore: pos_check_by_week_f {
   join: dates_week {
     relationship: many_to_one
     type: inner
-    sql_on: ${pos_check_by_week_f.transctn_bus_raw} = ${dates_week.ly_week_ending_raw} ;;
+    sql_on: ${pos_check_by_week_f.transctn_bus_raw}
+    = ${dates_week.week_ending_raw} ;;
   }
 
   join: shop_addtnl_attrbts_d {
