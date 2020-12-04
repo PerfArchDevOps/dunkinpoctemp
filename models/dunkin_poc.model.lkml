@@ -780,7 +780,7 @@ explore: perks_membr_summry_actv_f {
   join: perks_spend_segmnt_d {
     relationship: many_to_one
     type: inner
-    sql: (${perks_membr_summry_actv_f.perks_sales_amt}/${perks_membr_summry_actv_f.actv_weeks_nbr}) BETWEEN ${perks_spend_segmnt_d.segmnt_start_amt} AND ${perks_spend_segmnt_d.segmnt_end_amt} ;;
+    sql_on:${perks_membr_summry_actv_f.perks_sales_amt}/${perks_membr_summry_actv_f.actv_weeks_nbr} BETWEEN ${perks_spend_segmnt_d.segmnt_start_amt} AND ${perks_spend_segmnt_d.segmnt_end_amt} ;;
   }
 }
 
