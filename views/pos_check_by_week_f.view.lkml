@@ -11,7 +11,20 @@ view: pos_check_by_week_f {
   measure: check_cnt {
     label: "Check Count"
     type: number
+    hidden: yes
     sql: ${TABLE}.CHECK_CNT ;;
+  }
+
+  measure: transaction_count_sssw {
+    label: "Transaction Count SSSW"
+    type: sum
+    sql: ${TABLE}.CHECK_CNT ;;
+  }
+
+  measure: transaction_count_ly_sssw {
+    label: "Transaction Count LY SSSW"
+    type: sum
+    sql: ${TABLE}.CHECK_CNT_LY_CNT ;;
   }
 
   dimension: check_cnt_ly_cnt_base {
@@ -23,6 +36,7 @@ view: pos_check_by_week_f {
   measure: check_cnt_ly_cnt {
     label: "Check Count LY"
     type: number
+    hidden: yes
     sql: ${TABLE}.CHECK_CNT_LY_CNT ;;
   }
 
