@@ -92,7 +92,7 @@ explore: pos_brand_by_day_dayprt_grp_f {
 # Without Override comp date
 
 
-explore: all_pos_brand_by_day_dayprt_grp_f {
+explore: all_pbbddgf {
   from: pos_brand_by_day_dayprt_grp_f
 
   label: "All POS Brand by Day Daypart Group"
@@ -100,40 +100,40 @@ explore: all_pos_brand_by_day_dayprt_grp_f {
   join: dates {
     relationship: many_to_one
     type: inner
-    sql_on: ${all_pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} = ${dates.actual_date_raw} ;;
+    sql_on: ${all_pbbddgf.transctn_bus_raw} = ${dates.actual_date_raw} ;;
   }
 
   join: shop_brand_class_fl {
     relationship: many_to_one
     type: inner
-    sql_on: ${all_pos_brand_by_day_dayprt_grp_f.dwh_shop_brand_id} = ${shop_brand_class_fl.dwh_shop_brand_id}
-              AND ${all_pos_brand_by_day_dayprt_grp_f.dwh_shop_rooftp_id = ${shop_brand_class_fl.dwh_shop_rooftp_id}
-              AND ${all_pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} = ${shop_brand_class_fl.shop_brand_class_raw}  };;
+    sql_on: ${all_pbbddgf.dwh_shop_brand_id} = ${shop_brand_class_fl.dwh_shop_brand_id}
+              AND ${all_pbbddgf.dwh_shop_rooftp_id = ${shop_brand_class_fl.dwh_shop_rooftp_id}
+              AND ${all_pbbddgf.transctn_bus_raw} = ${shop_brand_class_fl.shop_brand_class_raw}  };;
   }
 
   join: pos_item_brand_d {
     relationship: many_to_one
     type: inner
-    sql_on: ${all_pos_brand_by_day_dayprt_grp_f.dwh_item_brand_id} = ${pos_item_brand_d.dwh_item_brand_id} ;;
+    sql_on: ${all_pbbddgf.dwh_item_brand_id} = ${pos_item_brand_d.dwh_item_brand_id} ;;
   }
 
   join: shop_brand_mastr_d {
     relationship: many_to_one
     type: inner
-    sql_on: ${all_pos_brand_by_day_dayprt_grp_f.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id} ;;
+    sql_on: ${all_pbbddgf.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id} ;;
   }
 
   join: shop_addtnl_attrbts_d {
     relationship: many_to_one
     type: inner
-    sql_on: ${all_pos_brand_by_day_dayprt_grp_f.dwh_shop_brand_id} = ${shop_addtnl_attrbts_d.dwh_shop_brand_id} ;;
+    sql_on: ${all_pbbddgf.dwh_shop_brand_id} = ${shop_addtnl_attrbts_d.dwh_shop_brand_id} ;;
   }
 
   join: ovride_comp_day {
     relationship: many_to_one
     type: left_outer
-    sql_on:${all_pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} = ${ovride_comp_day.ovride_comp_date_raw}
-      AND ${all_pos_brand_by_day_dayprt_grp_f.dwh_shop_brand_id} = ${ovride_comp_day.dwh_shop_brand_id};;
+    sql_on:${all_pbbddgf.transctn_bus_raw} = ${ovride_comp_day.ovride_comp_date_raw}
+      AND ${all_pbbddgf.dwh_shop_brand_id} = ${ovride_comp_day.dwh_shop_brand_id};;
   }
 
   join: shop_rooftp_mastr_d {
@@ -145,13 +145,13 @@ explore: all_pos_brand_by_day_dayprt_grp_f {
   join: dayprt_grp_d {
     relationship: many_to_one
     type: inner
-    sql_on: ${all_pos_brand_by_day_dayprt_grp_f.dwh_dayprt_grp_id} = ${dayprt_grp_d.dwh_dayprt_grp_id} ;;
+    sql_on: ${all_pbbddgf.dwh_dayprt_grp_id} = ${dayprt_grp_d.dwh_dayprt_grp_id} ;;
   }
 
   join: pos_ordr_type_code_d {
     relationship: many_to_one
     type: inner
-    sql_on: ${all_pos_brand_by_day_dayprt_grp_f.dwh_pos_ordr_type_id} = ${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
+    sql_on: ${all_pbbddgf.dwh_pos_ordr_type_id} = ${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
   }
 
 }
