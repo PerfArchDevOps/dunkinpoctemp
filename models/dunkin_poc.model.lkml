@@ -19,9 +19,13 @@ persist_with: dunkin_poc_default_datagroup
 explore: pos_brand_by_day_dayprt_grp_f {
   sql_always_where: ${pos_brand_by_day_dayprt_grp_f.yoy_sales_day_ind} = 1
   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
-  AND ${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
+
+#  AND ${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} = '12-NOV-2020'
+
+
   label: "POS Brand by Day Daypart Group"
+
 
   join: dates {
    relationship: many_to_one
@@ -73,6 +77,13 @@ explore: pos_brand_by_day_dayprt_grp_f {
     type: inner
     sql_on: ${pos_brand_by_day_dayprt_grp_f.dwh_dayprt_grp_id} = ${dayprt_grp_d.dwh_dayprt_grp_id} ;;
   }
+
+  join: pos_ordr_type_code_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_brand_by_day_dayprt_grp_f.dwh_pos_ordr_type_id} = ${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
+  }
+
 }
 
 explore: pos_brand_by_week_dayprt_grp_f {

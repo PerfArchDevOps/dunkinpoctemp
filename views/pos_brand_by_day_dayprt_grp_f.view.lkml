@@ -120,9 +120,10 @@ view: pos_brand_by_day_dayprt_grp_f {
     sql: ${TABLE}.GROSS_UNITS_QTY ;;
   }
 
-  dimension: net_sales_amt_base {
-    hidden: yes
-    type: number
+  measure: net_sales_amt_base {
+    hidden: no
+    label: "Net Sales Amt"
+    type: sum
     sql: ${TABLE}.NET_SALES_AMT ;;
   }
 
