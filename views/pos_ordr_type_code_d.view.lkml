@@ -67,27 +67,27 @@ view: pos_ordr_type_code_d {
   }
 
   dimension: dd_on_the_go_ordering_flag {
-    type: string
+    type: yesno
     label: "DD On The Go Ordering Flag"
-    sql: case when ${TABLE}.ORDR_TYPE_GRP_NAME  = 'DD On-the-Go Ordering' then 'Y' else 'N' end;;
+    sql: ${TABLE}.ORDR_TYPE_GRP_NAME  = 'DD On-the-Go Ordering' ;;
   }
 
   dimension: br_online_order_flag {
-    type: string
+    type: yesno
     label: "BR Online Order Flag"
-    sql: case when ${TABLE}.ORDR_TYPE_GRP_NAME  = 'BR Online' then 'Y' else 'N' end;;
+    sql: ${TABLE}.ORDR_TYPE_GRP_NAME  = 'BR Online' ;;
   }
 
   dimension: drive_thru_order_flag {
-    type: string
+    type: yesno
     label: "Drive Thru Order Flag"
-    sql: case when ${TABLE}.ORDR_TYPE_NAME IN  ('OTG DT','Drive Thru')  then 'Y' else 'N' end;;
+    sql:  ${TABLE}.ORDR_TYPE_NAME IN  ('OTG DT','Drive Thru') ;;
   }
 
   dimension: kiosk_order_flag {
-    type: string
+    type: yesno
     label: "Kiosk Order Flag"
-    sql: case when ${TABLE}.ORDR_TYPE_NAME like '%KIOSK%'  then 'Y' else 'N' end;;
+    sql: ${TABLE}.ORDR_TYPE_NAME like '%KIOSK%'  ;;
   }
 
 

@@ -863,5 +863,36 @@ explore: perks_membr_summry_actv_f {
   }
 }
 
+
+explore: bltf_item_by_day {
+  label: "BLTF Item By Day"
+
+  join: dates {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${bltf_item_by_day.transctn_bus_raw} = ${dates.actual_date_raw};;
+  }
+  join: shop_brand_mastr_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${bltf_item_by_day.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id};;
+  }
+
+  join: pos_ordr_type_code_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${bltf_item_by_day.dwh_ordr_type_id} = ${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
+  }
+
+  join: pos_menu_item_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${bltf_item_by_day.dwh_pos_menu_item_id} = ${pos_menu_item_d.dwh_pos_menu_item_id}
+   ;;
+}
+}
+
+
+
 explore:init_block_dates_view
 {label: "Init Block for Dates"}
