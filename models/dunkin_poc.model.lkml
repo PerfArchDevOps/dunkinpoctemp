@@ -25,7 +25,6 @@ explore: pos_brand_by_day_dayprt_grp_f {
 
 #  AND ${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} = '12-NOV-2020'
 
-
   label: "POS Brand by Day Daypart Group"
 
 
