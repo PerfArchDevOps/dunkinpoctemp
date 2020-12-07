@@ -1,7 +1,7 @@
 view: pos_ordr_type_code_d {
   sql_table_name: BAL3.POS_ORDR_TYPE_CODE_D ;;
 
-  label: "Dimension - Order Type"
+  label: "Dim - Order Type"
 
   dimension: actv_flg {
     type: string
@@ -34,6 +34,7 @@ view: pos_ordr_type_code_d {
   dimension: dwh_pos_ordr_type_id {
     type: number
     primary_key: yes
+    hidden: yes
     sql: ${TABLE}.DWH_POS_ORDR_TYPE_ID ;;
   }
 
