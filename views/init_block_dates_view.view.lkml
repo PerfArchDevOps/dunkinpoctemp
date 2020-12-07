@@ -231,6 +231,10 @@ view: init_block_dates_view {
       drill_fields: [detail*]
     }
 
+  dimension: date_vars_join {
+    type: string
+    sql: 'X' ;;
+  }
     dimension: date {
       type: date
       primary_key: yes

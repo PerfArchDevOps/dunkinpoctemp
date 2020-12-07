@@ -11,6 +11,11 @@ view: dates {
     sql: ${TABLE}.DATES_ID ;;
   }
 
+  dimension: date_vars_join {
+    type: string
+    sql: 'X' ;;
+  }
+
   dimension_group: actual_date {
     type: time
     timeframes: [
