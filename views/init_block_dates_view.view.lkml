@@ -33,9 +33,9 @@ view: init_block_dates_view {
     sql: ${TABLE}.br_yesterday ;;
   }
 
-  dimension: date_ly {
+  dimension: ly_date {
     type: date
-    sql: ${TABLE}.date_ly ;;
+    sql: ${TABLE}.ly_date ;;
   }
 
   dimension: start_date {
@@ -45,7 +45,7 @@ view: init_block_dates_view {
 
   set: detail {
     fields: [
-      todays_date, ytd_start, br_yesterday,date_ly
+      todays_date, ytd_start, br_yesterday,ly_date
     ]
   }
 }
