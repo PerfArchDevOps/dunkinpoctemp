@@ -34,6 +34,12 @@ explore: pos_brand_by_day_dayprt_grp_f {
   sql_on: ${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} = ${dates.actual_date_raw} ;;
   }
 
+  join: init_block_dates_view {
+    relationship: many_to_one
+    type: inner
+    sql_on:  ${dates.date_vars_join} = ${init_block_dates_view.date_vars_join} ;;
+  }
+
   join: shop_brand_class_fl {
     relationship: many_to_one
     type: inner
