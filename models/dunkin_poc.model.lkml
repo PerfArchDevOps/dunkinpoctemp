@@ -776,6 +776,12 @@ explore: perks_membr_summry_actv_f {
     type: inner
     sql_on: ${perks_membr_summry_actv_f.epsilon_profile_id}= ${dbi_membrs.epsilon_profile_id} ;;
   }
+
+  join: perks_spend_segmnt_d {
+    relationship: many_to_one
+    type: inner
+    sql_on:${perks_membr_summry_actv_f.perks_sales_amt}/${perks_membr_summry_actv_f.actv_weeks_nbr} BETWEEN ${perks_spend_segmnt_d.segmnt_start_amt} AND ${perks_spend_segmnt_d.segmnt_end_amt} ;;
+  }
 }
 
 explore:init_block_dates_view
