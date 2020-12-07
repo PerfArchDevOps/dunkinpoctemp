@@ -226,11 +226,6 @@ view: init_block_dates_view {
        ;;
     }
 
-    measure: count {
-      type: count
-      drill_fields: [detail*]
-    }
-
   dimension: date_vars_join {
     type: string
     sql: 'X' ;;
@@ -248,12 +243,12 @@ view: init_block_dates_view {
 
     dimension: br_yesterday {
       type: date
-      sql: ${TABLE}.BR_Yesterday ;;
+      sql: ${TABLE}."br_yesterday" ;;
     }
 
     dimension: date_ly {
       type: date
-      sql: ${TABLE}.Date_LY ;;
+      sql: ${TABLE}."date_ly" ;;
     }
 
     dimension: start_date {
@@ -282,7 +277,7 @@ view: init_block_dates_view {
 
     dimension: sttenweeksago {
       type: date
-      sql: ${TABLE}.STTENWEEKSAGO ;;
+      sql: ${TABLE}."sttenweeksago";;
     }
 
     dimension: endtenweeksago {

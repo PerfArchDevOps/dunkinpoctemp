@@ -91,6 +91,8 @@ explore: pos_brand_by_day_dayprt_grp_f {
     sql_on: ${pos_brand_by_day_dayprt_grp_f.dwh_pos_ordr_type_id} = ${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
   }
 
+
+
 }
 
 # Without override
