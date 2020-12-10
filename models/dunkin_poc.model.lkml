@@ -91,8 +91,6 @@ explore: pos_brand_by_day_dayprt_grp_f {
     sql_on: ${pos_brand_by_day_dayprt_grp_f.dwh_pos_ordr_type_id} = ${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
   }
 
-
-
 }
 
 # Without override
@@ -132,13 +130,6 @@ explore: apb {
     relationship: many_to_one
     type: inner
     sql_on: ${apb.dwh_shop_brand_id} = ${shop_addtnl_attrbts_d.dwh_shop_brand_id} ;;
-  }
-
-  join: ovride_comp_day {
-    relationship: many_to_one
-    type: left_outer
-    sql_on:${apb.transctn_bus_raw} = ${ovride_comp_day.ovride_comp_date_raw}
-      AND ${apb.dwh_shop_brand_id} = ${ovride_comp_day.dwh_shop_brand_id};;
   }
 
   join: shop_rooftp_mastr_d {
