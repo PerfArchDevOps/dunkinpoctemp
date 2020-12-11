@@ -3,6 +3,10 @@ connection: "dbm01p"
 # include all the views
 include: "/views/**/*.view"
 
+# include all the dashboards
+
+include: "/dashboards/**/*.dashboard"
+
 datagroup: dunkin_poc_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
