@@ -210,6 +210,8 @@ relationship: many_to_one
   }
 }
 
+# With override
+
 explore: pos_check_by_day_f {
   sql_always_where: ${pos_check_by_day_f.yoy_sales_day_ind} = 1
   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
@@ -261,6 +263,60 @@ explore: pos_check_by_day_f {
     sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
   }
 }
+
+# Without override
+
+explore: apcdp {
+   from: pos_check_by_day_f
+
+  label: "All POS Check by Day"
+  join: dates {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${apcdp.transctn_bus_raw} = ${dates.actual_date_raw} ;;
+  }
+
+  join: shop_addtnl_attrbts_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${apcdp.dwh_shop_brand_id} = ${shop_addtnl_attrbts_d.dwh_shop_brand_id} ;;
+  }
+
+  join: shop_brand_mastr_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${apcdp.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id} ;;
+  }
+
+  join: pos_transctn_grpng_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${apcdp.dwh_pos_transctn_grpng_id} = ${pos_transctn_grpng_d.dwh_pos_transctn_grpng_id} ;;
+  }
+
+  join: ovride_comp_day {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${apcdp.transctn_bus_raw} = ${ovride_comp_day.ovride_comp_date_raw}
+      AND ${apcdp.dwh_shop_brand_id} = ${ovride_comp_day.dwh_shop_brand_id};;
+  }
+
+  join: shop_brand_class_fl {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${apcdp.dwh_shop_brand_id} = ${shop_brand_class_fl.dwh_shop_brand_id}
+            AND ${apcdp.dwh_shop_rooftp_id} = ${shop_brand_class_fl.dwh_shop_rooftp_id}
+            AND ${apcdp.transctn_bus_raw} = ${shop_brand_class_fl.shop_brand_class_raw};;
+  }
+
+  join: shop_rooftp_mastr_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
+  }
+}
+
+
 
 explore: pos_check_by_dayprt_f {
   sql_always_where: ${pos_check_by_dayprt_f.yoy_sales_day_ind} = 1
