@@ -1,6 +1,8 @@
 view: sales_progrms_d {
   sql_table_name: BAL3.SALES_PROGRMS_D ;;
 
+  label: "Dim - Sales Programs"
+
   dimension_group: dwh_creatd_datetm {
     type: time
     timeframes: [
