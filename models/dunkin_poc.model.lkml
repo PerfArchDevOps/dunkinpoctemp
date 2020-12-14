@@ -1007,6 +1007,9 @@ explore: pos_yoy_day_sales_f {
   }
 }
 
+
+# With OVERRIDE
+
 explore: pos_yoy_week_sales_f {
   sql_always_where: ${pos_yoy_week_sales_f.sales_ind_ty} = 1
   AND ${ovride_comp_week.ovride_comp_week_ind} IS NULL
@@ -1052,6 +1055,57 @@ explore: pos_yoy_week_sales_f {
     sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
   }
 }
+
+
+# Without override
+
+
+explore: pyws {
+  from: pos_yoy_week_sales_f
+
+    label: "All POS YOY Week Sales"
+    join: dates_week {
+      relationship: many_to_one
+      type: inner
+      sql_on: ${pyws.transctn_bus_raw} = ${dates_week.week_ending_raw} ;;
+    }
+
+    join: ovride_comp_week {
+      relationship: many_to_one
+      type: left_outer
+      sql_on: ${pyws.transctn_bus_raw} = ${ovride_comp_week.ovride_comp_raw}
+        AND ${pyws.dwh_shop_brand_id} = ${ovride_comp_week.dwh_shop_brand_id};;
+    }
+
+    join: shop_brand_mastr_d {
+      relationship: many_to_one
+      type: inner
+      sql_on: ${pyws.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id} ;;
+    }
+
+    join: shop_addtnl_attrbts_d{
+      relationship: many_to_one
+      type: inner
+      sql_on: ${pyws.dwh_shop_brand_id} = ${shop_addtnl_attrbts_d.dwh_shop_brand_id} ;;
+    }
+
+    join: shop_brand_class_fl {
+      relationship: many_to_one
+      type: inner
+      sql_on: ${pyws.transctn_bus_raw} = ${shop_brand_class_fl.shop_brand_class_raw}
+        AND ${pyws.dwh_shop_brand_id} = ${shop_brand_class_fl.dwh_shop_brand_id};;
+    }
+
+    join: shop_rooftp_mastr_d {
+      relationship: many_to_one
+      type: inner
+      sql_on: ${pyws.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
+    }
+  }
+
+
+
+
 
 explore: pos_yoy_day_sales_ly_f {
   sql_always_where: ${pos_yoy_day_sales_ly_f.sales_ind_ty} = 1
@@ -1099,6 +1153,12 @@ explore: pos_yoy_day_sales_ly_f {
   }
 
 }
+
+
+
+
+
+
 
 
 explore: perks_membr_summry_actv_f {
