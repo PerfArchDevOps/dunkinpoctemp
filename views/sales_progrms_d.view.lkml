@@ -1,6 +1,8 @@
 view: sales_progrms_d {
   sql_table_name: BAL3.SALES_PROGRMS_D ;;
 
+  label: "Dim - Sales Programs"
+
   dimension_group: dwh_creatd_datetm {
     type: time
     timeframes: [
@@ -23,7 +25,9 @@ view: sales_progrms_d {
 
   dimension: dwh_shop_rooftp_id {
     type: number
-    hidden: yes sql: ${TABLE}.DWH_SHOP_ROOFTP_ID ;;
+    hidden: no
+    label: "PFCNTR"
+    sql: ${TABLE}.DWH_SHOP_ROOFTP_ID ;;
   }
 
   dimension_group: dwh_updtd_datetm {
@@ -41,7 +45,7 @@ view: sales_progrms_d {
     hidden: yes sql: ${TABLE}.DWH_UPDTD_DATETM ;;
   }
 
-  dimension_group: end {
+  dimension_group: end_date {
     type: time
     timeframes: [
       raw,
@@ -53,12 +57,16 @@ view: sales_progrms_d {
     ]
     convert_tz: no
     datatype: date
-    hidden: yes sql: ${TABLE}.END_DATE ;;
+    hidden: no
+    label: "Effective End Date"
+    sql: ${TABLE}.END_DATE ;;
   }
 
   dimension: sales_progrm_name {
     type: string
-    hidden: yes sql: ${TABLE}.SALES_PROGRM_NAME ;;
+    hidden: no
+    label: "Program Name"
+    sql: ${TABLE}.SALES_PROGRM_NAME ;;
   }
 
   dimension_group: start {
@@ -73,12 +81,16 @@ view: sales_progrms_d {
     ]
     convert_tz: no
     datatype: date
-    hidden: yes sql: ${TABLE}.START_DATE ;;
+    hidden: no
+    label: "Effective Start Date"
+    sql: ${TABLE}.START_DATE ;;
   }
 
   dimension: status_ind {
     type: string
-    hidden: yes sql: ${TABLE}.STATUS_IND ;;
+    hidden: no
+    label: "Program Effective Flag"
+    sql: ${TABLE}.STATUS_IND ;;
   }
 
   measure: count {
