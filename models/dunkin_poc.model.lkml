@@ -24,6 +24,8 @@ map_layer: dma_layer {
 # With Override comp date
 
 explore: pos_brand_by_day_dayprt_grp_f {
+
+
   sql_always_where: ${pos_brand_by_day_dayprt_grp_f.yoy_sales_day_ind} = 1
   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
   AND ${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
