@@ -1,7 +1,7 @@
 view: init_block_dates_view {
 
   derived_table: {
-    sql: SELECT TRUNC (sysdate) "Date", TRUNC (sysdate, 'YEAR') "YTD_START"
+    sql: SELECT TRUNC (sysdate) todays_date, TRUNC (sysdate, 'YEAR') "YTD_START"
      , TRUNC (sysdate) - 1 "BR_Yesterday",
      ly_date "Date_LY"
      , (week_ending_date) - 28 "Start Date"
@@ -14,12 +14,12 @@ view: init_block_dates_view {
           WHEN day_short_name IN ('SUN', 'MON')
              THEN (week_ending_date) - 35
           ELSE (week_ending_date) - 28
-       END "4W Prior"
+       END prior_4w
      , CASE
           WHEN day_short_name IN ('SUN', 'MON')
              THEN (week_ending_date) - 21
           ELSE (week_ending_date) - 14
-       END "2W Prior"
+       END prior_2w
      , CASE
           WHEN TO_CHAR (actual_date, 'DY') IN ('SUN', 'MON')
              THEN (week_ending_date) - 77
