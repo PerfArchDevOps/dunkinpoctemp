@@ -620,8 +620,8 @@ explore: pos_check_by_week_f {
     type: inner
     sql_on: ${pos_check_by_week_f.dwh_shop_brand_id} = ${sales_progrms_d.dwh_shop_brand_id}
             AND ${pos_check_by_week_f.dwh_shop_rooftp_id} = ${sales_progrms_d.dwh_shop_rooftp_id}
-            AND ${pos_check_by_week_f.transctn_bus_date} BETWEEN ${sales_progrms_d.start_date}
-            AND ${sales_progrms_d.end_date_date};;
+            AND ${pos_check_by_week_f.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw}
+            AND ${sales_progrms_d.end_date_raw};;
   }
 
   }
