@@ -10,8 +10,8 @@ view: pos_check_by_week_f {
 
   measure: check_cnt {
     label: "Check Count"
-    type: number
-    hidden: yes
+    type: sum
+    hidden: no
     sql: ${TABLE}.CHECK_CNT ;;
   }
 
