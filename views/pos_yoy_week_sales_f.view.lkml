@@ -14,11 +14,13 @@ view: pos_yoy_week_sales_f {
     ]
     convert_tz: no
     datatype: date
+    hidden: yes
     sql: ${TABLE}.DWH_CREATD_DATETM ;;
   }
 
   dimension: dwh_shop_brand_id {
     type: number
+    hidden: yes
     sql: ${TABLE}.DWH_SHOP_BRAND_ID ;;
   }
 
@@ -40,6 +42,7 @@ view: pos_yoy_week_sales_f {
     ]
     convert_tz: no
     datatype: date
+    hidden: yes
     sql: ${TABLE}.DWH_UPDTD_DATETM ;;
   }
 
@@ -65,7 +68,22 @@ view: pos_yoy_week_sales_f {
     ]
     convert_tz: no
     datatype: date
+    hidden: yes
     sql: ${TABLE}.TRANSCTN_BUS_DATE ;;
+  }
+
+  measure: site_week_count {
+    label: "Site Week Count"
+    type: count_distinct
+    sql:  CAST( ${TABLE}."DWH_SHOP_ROOFTP_ID" AS VARCHAR(10)) || CAST( ${TABLE}."TRANSCTN_BUS_DATE"  as varchar(10)) ;;
+    drill_fields: []
+  }
+
+  measure: site_count {
+    label: "Site Count"
+    type: count_distinct
+    sql:  CAST( ${TABLE}."DWH_SHOP_ROOFTP_ID" AS VARCHAR(10)) ;;
+    drill_fields: []
   }
 
   measure: site_count_sssd {
@@ -77,6 +95,7 @@ view: pos_yoy_week_sales_f {
 
   measure: count {
     type: count
+    hidden: yes
     drill_fields: []
   }
 }
