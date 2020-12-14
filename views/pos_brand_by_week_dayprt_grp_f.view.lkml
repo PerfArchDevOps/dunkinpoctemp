@@ -127,6 +127,12 @@ view: pos_brand_by_week_dayprt_grp_f {
     sql: ${TABLE}.NET_SALES_AMT ;;
   }
 
+  measure: net_sales_amt_noncomp {
+    label: "Net Sales Amt"
+    type: sum
+    sql: ${TABLE}.NET_SALES_AMT ;;
+  }
+
   measure: net_sales_amt {
     label: "Net Sales Amt SSSW"
     type: sum
