@@ -10,7 +10,7 @@ view: pos_check_by_day_f {
 
   measure: check_cnt {
     label: "Check Count"
-    type: number
+    type: sum
     sql: ${TABLE}.CHECK_CNT ;;
   }
 
@@ -22,7 +22,7 @@ view: pos_check_by_day_f {
 
   measure: check_cnt_ly_cnt {
     label: "Check Count LY"
-    type: number
+    type: sum
     sql: ${TABLE}.CHECK_CNT_LY_CNT ;;
   }
 
