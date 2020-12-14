@@ -90,6 +90,14 @@ explore: pos_brand_by_day_dayprt_grp_f {
     sql_on: ${pos_brand_by_day_dayprt_grp_f.dwh_pos_ordr_type_id} = ${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
   }
 
+  join: sales_progrms_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_brand_by_day_dayprt_grp_f.dwh_shop_brand_id} = ${sales_progrms_d.dwh_shop_brand_id}
+            AND ${pos_brand_by_day_dayprt_grp_f.dwh_shop_rooftp_id} = ${sales_progrms_d.dwh_shop_rooftp_id}
+            AND ${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw} AND ${sales_progrms_d.end_date_raw};;
+  }
+
 }
 
 # Without override
@@ -147,6 +155,14 @@ explore: apb {
     relationship: many_to_one
     type: inner
     sql_on: ${apb.dwh_pos_ordr_type_id} = ${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
+  }
+
+  join: sales_progrms_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${apb.dwh_shop_brand_id} = ${sales_progrms_d.dwh_shop_brand_id}
+            AND ${apb.dwh_shop_rooftp_id} = ${sales_progrms_d.dwh_shop_rooftp_id}
+            AND ${apb.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw} AND ${sales_progrms_d.end_date_raw};;
   }
 
 }
@@ -365,6 +381,14 @@ explore: pos_check_by_day_f {
     type: inner
     sql_on: ${pos_check_by_day_f.dwh_pos_ordr_type_id}=${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
   }
+
+  join: sales_progrms_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_check_by_day_f.dwh_shop_brand_id} = ${sales_progrms_d.dwh_shop_brand_id}
+            AND ${pos_check_by_day_f.dwh_shop_rooftp_id} = ${sales_progrms_d.dwh_shop_rooftp_id}
+            AND ${pos_check_by_day_f.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw} AND ${sales_progrms_d.end_date_raw};;
+  }
 }
 
 # Without override
@@ -422,6 +446,14 @@ explore: apcdp {
     relationship: many_to_one
     type: inner
     sql_on: ${apcdp.dwh_pos_ordr_type_id}=${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
+  }
+
+  join: sales_progrms_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${apcdp.dwh_shop_brand_id} = ${sales_progrms_d.dwh_shop_brand_id}
+            AND ${apcdp.dwh_shop_rooftp_id} = ${sales_progrms_d.dwh_shop_rooftp_id}
+            AND ${apcdp.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw} AND ${sales_progrms_d.end_date_raw};;
   }
 }
 
@@ -489,6 +521,14 @@ explore: pos_check_by_dayprt_f {
     type: inner
     sql_on: ${pos_check_by_dayprt_f.dwh_pos_ordr_type_id}=${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
   }
+
+  join: sales_progrms_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_check_by_dayprt_f.dwh_shop_brand_id} = ${sales_progrms_d.dwh_shop_brand_id}
+            AND ${pos_check_by_dayprt_f.dwh_shop_rooftp_id} = ${sales_progrms_d.dwh_shop_rooftp_id}
+            AND ${pos_check_by_dayprt_f.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw} AND ${sales_progrms_d.end_date_raw};;
+  }
 }
 
 explore: pos_check_by_week_dayprt_f {
@@ -552,6 +592,14 @@ explore: pos_check_by_week_dayprt_f {
     relationship: many_to_one
     type: inner
     sql_on: ${pos_check_by_week_dayprt_f.dwh_pos_ordr_type_id}=${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
+  }
+
+  join: sales_progrms_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_check_by_week_dayprt_f.dwh_shop_brand_id} = ${sales_progrms_d.dwh_shop_brand_id}
+            AND ${pos_check_by_week_dayprt_f.dwh_shop_rooftp_id} = ${sales_progrms_d.dwh_shop_rooftp_id}
+            AND ${pos_check_by_week_dayprt_f.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw} AND ${sales_progrms_d.end_date_raw};;
   }
 }
 
@@ -743,6 +791,14 @@ explore: pos_item_by_day_f {
     type: inner
     sql_on: ${pos_item_by_day_f.dwh_pos_ordr_type_id}=${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
   }
+
+  join: sales_progrms_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_day_f.dwh_shop_brand_id} = ${sales_progrms_d.dwh_shop_brand_id}
+            AND ${pos_item_by_day_f.dwh_shop_rooftp_id} = ${sales_progrms_d.dwh_shop_rooftp_id}
+            AND ${pos_item_by_day_f.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw} AND ${sales_progrms_d.end_date_raw};;
+  }
 }
 
 
@@ -808,6 +864,14 @@ explore: pos_item_by_dayprt_f {
     type: inner
     sql_on: ${pos_item_by_dayprt_f.dwh_pos_ordr_type_id}=${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
   }
+
+  join: sales_progrms_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_dayprt_f.dwh_shop_brand_id} = ${sales_progrms_d.dwh_shop_brand_id}
+            AND ${pos_item_by_dayprt_f.dwh_shop_rooftp_id} = ${sales_progrms_d.dwh_shop_rooftp_id}
+            AND ${pos_item_by_dayprt_f.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw} AND ${sales_progrms_d.end_date_raw};;
+  }
 }
 
 explore: pos_item_by_week_dayprt_f {
@@ -867,6 +931,14 @@ explore: pos_item_by_week_dayprt_f {
     type: inner
     sql_on: ${pos_item_by_week_dayprt_f.dwh_pos_ordr_type_id}=${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
   }
+
+  join: sales_progrms_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_week_dayprt_f.dwh_shop_brand_id} = ${sales_progrms_d.dwh_shop_brand_id}
+            AND ${pos_item_by_week_dayprt_f.dwh_shop_rooftp_id} = ${sales_progrms_d.dwh_shop_rooftp_id}
+            AND ${pos_item_by_week_dayprt_f.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw} AND ${sales_progrms_d.end_date_raw};;
+  }
 }
 
 
@@ -920,6 +992,14 @@ explore: pos_item_by_week_f {
     relationship: many_to_one
     type: inner
     sql_on: ${pos_item_by_week_f.dwh_pos_ordr_type_id}=${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
+  }
+
+  join: sales_progrms_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_week_f.dwh_shop_brand_id} = ${sales_progrms_d.dwh_shop_brand_id}
+            AND ${pos_item_by_week_f.dwh_shop_rooftp_id} = ${sales_progrms_d.dwh_shop_rooftp_id}
+            AND ${pos_item_by_week_f.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw} AND ${sales_progrms_d.end_date_raw};;
   }
 }
 
@@ -983,6 +1063,14 @@ label: "POS Sub Category by Day Daypart"
     relationship: many_to_one
     type: inner
     sql_on: ${pos_subcat_by_day_dayprt_grp_f.dwh_pos_ordr_type_id}=${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
+  }
+
+  join: sales_progrms_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_subcat_by_day_dayprt_grp_f.dwh_shop_brand_id} = ${sales_progrms_d.dwh_shop_brand_id}
+            AND ${pos_subcat_by_day_dayprt_grp_f.dwh_shop_rooftp_id} = ${sales_progrms_d.dwh_shop_rooftp_id}
+            AND ${pos_subcat_by_day_dayprt_grp_f.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw} AND ${sales_progrms_d.end_date_raw};;
   }
 
   }
@@ -1049,6 +1137,13 @@ join: pos_ordr_type_code_d {
   sql_on: ${pos_subcat_by_wk_dayprt_grp_f.dwh_pos_ordr_type_id}=${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
 }
 
+  join: sales_progrms_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_subcat_by_wk_dayprt_grp_f.dwh_shop_brand_id} = ${sales_progrms_d.dwh_shop_brand_id}
+            AND ${pos_subcat_by_wk_dayprt_grp_f.dwh_shop_rooftp_id} = ${sales_progrms_d.dwh_shop_rooftp_id}
+            AND ${pos_subcat_by_wk_dayprt_grp_f.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw} AND ${sales_progrms_d.end_date_raw};;
+  }
 }
 
 explore: pos_yoy_day_sales_f {
@@ -1094,6 +1189,14 @@ explore: pos_yoy_day_sales_f {
     relationship: many_to_one
     type: inner
     sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
+  }
+
+  join: sales_progrms_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_yoy_day_sales_f.dwh_shop_brand_id} = ${sales_progrms_d.dwh_shop_brand_id}
+            AND ${pos_yoy_day_sales_f.dwh_shop_rooftp_id} = ${sales_progrms_d.dwh_shop_rooftp_id}
+            AND ${pos_yoy_day_sales_f.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw} AND ${sales_progrms_d.end_date_raw};;
   }
 }
 
