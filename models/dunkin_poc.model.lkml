@@ -626,6 +626,65 @@ explore: pos_check_by_week_f {
 
   }
 
+explore: acbwf
+{from: pos_check_by_week_f
+
+  label: "All POS Check by Week"
+    join: dates_week {
+      relationship: many_to_one
+      type: inner
+      sql_on: ${acbwf.transctn_bus_raw}
+        = ${dates_week.week_ending_raw} ;;
+    }
+
+    join: shop_addtnl_attrbts_d {
+      relationship: many_to_one
+      type: inner
+      sql_on: ${acbwf.dwh_shop_brand_id} = ${shop_addtnl_attrbts_d.dwh_shop_brand_id} ;;
+    }
+
+    join: shop_brand_mastr_d{
+      relationship: many_to_one
+      type: inner
+      sql_on: ${acbwf.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id} ;;
+    }
+
+    join: shop_brand_class_fl {
+      relationship: many_to_one
+      type: inner
+      sql_on: ${acbwf.dwh_shop_brand_id} = ${shop_brand_class_fl.dwh_shop_brand_id}
+            AND ${acbwf.dwh_shop_rooftp_id} = ${shop_brand_class_fl.dwh_shop_rooftp_id}
+            AND ${acbwf.transctn_bus_raw} = ${shop_brand_class_fl.shop_brand_class_raw};;
+    }
+
+    join: pos_transctn_grpng_d {
+      relationship: many_to_one
+      type: inner
+      sql_on: ${acbwf.dwh_pos_transctn_grpng_id} = ${pos_transctn_grpng_d.dwh_pos_transctn_grpng_id};;
+    }
+
+    join: shop_rooftp_mastr_d {
+      relationship: many_to_one
+      type: inner
+      sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
+    }
+
+    join: pos_ordr_type_code_d {
+      relationship: many_to_one
+      type: inner
+      sql_on: ${acbwf.dwh_pos_ordr_type_id}=${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
+    }
+
+    join: sales_progrms_d {
+      relationship: many_to_one
+      type: inner
+      sql_on: ${acbwf.dwh_shop_brand_id} = ${sales_progrms_d.dwh_shop_brand_id}
+            AND ${acbwf.dwh_shop_rooftp_id} = ${sales_progrms_d.dwh_shop_rooftp_id}
+            AND ${acbwf.transctn_bus_date} BETWEEN ${sales_progrms_d.start_date}
+            AND ${sales_progrms_d.end_date_date};;
+    }
+
+}
 explore: pos_item_by_day_f {
   sql_always_where: ${pos_item_by_day_f.yoy_sales_day_ind} = 1
   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
