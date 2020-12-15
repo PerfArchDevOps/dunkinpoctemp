@@ -150,7 +150,8 @@ view: pos_brand_by_day_dayprt_grp_f {
 
   measure: br_net_sales_amt {
     type: sum
-    sql: case when shop_d.brand_code = 'BR' then  ${TABLE}.NET_SALES_AMT else 0 end ;;
+    label: "BR Net Sales Amt"
+    sql: case when shop_brand_mastr_d.brand_code = 'BR' then  ${TABLE}.NET_SALES_AMT else 0 end ;;
   }
 
 
