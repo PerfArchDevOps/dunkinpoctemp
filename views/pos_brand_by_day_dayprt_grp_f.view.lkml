@@ -154,6 +154,19 @@ view: pos_brand_by_day_dayprt_grp_f {
     sql: case when shop_brand_mastr_d.brand_code = 'BR' then  ${TABLE}.NET_SALES_AMT else 0 end ;;
   }
 
+  measure: dd_net_sales_amt {
+    type: sum
+    label: "DD Net Sales Amt"
+    sql: case when shop_brand_mastr_d.brand_code = 'DD' then  ${TABLE}.NET_SALES_AMT else 0 end ;;
+  }
+
+# Level based measures
+
+  measure: pct_tot_net_sales_amt {
+    type: percent_of_total
+    label: "% Total Net Sales Amt"
+    sql: ${TABLE}.NET_SALES_AMT ;;
+  }
 
 
 
