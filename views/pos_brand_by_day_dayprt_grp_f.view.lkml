@@ -165,7 +165,7 @@ view: pos_brand_by_day_dayprt_grp_f {
   measure: pct_tot_net_sales_amt {
     type: percent_of_total
     label: "% Total Net Sales Amt"
-    sql: ${TABLE}.NET_SALES_AMT ;;
+    sql: sum(${TABLE}.NET_SALES_AMT) ;;
   }
 
 
