@@ -719,13 +719,6 @@ explore: acbwf
       type: inner
       sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
     }
-
-    join: ovride_comp_week {
-    relationship: many_to_one
-    type: left_outer
-    sql_on: ${acbwf.transctn_bus_raw} = ${ovride_comp_week.ovride_comp_raw}
-      AND ${acbwf.dwh_shop_brand_id} = ${ovride_comp_week.dwh_shop_brand_id};;
-  }
     join: pos_ordr_type_code_d {
       relationship: many_to_one
       type: inner
