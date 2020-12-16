@@ -138,7 +138,7 @@ view: pos_item_by_week_f {
 
   measure: net_sales_amt {
     label: "Net Sales Amt SSSD"
-    type: number
+    type: sum
     sql: ${TABLE}.NET_SALES_AMT ;;
   }
 
@@ -150,7 +150,7 @@ view: pos_item_by_week_f {
 
   measure: net_sales_amt_ly {
     label: "Net Sales Amt LY SSSD"
-    type: number
+    type: sum
     sql: ${TABLE}.NET_SALES_AMT_LY ;;
   }
 
@@ -171,7 +171,7 @@ view: pos_item_by_week_f {
   }
 
   dimension: yoy_sales_week_ind {
-    hidden: yes
+    hidden: no
     type: number
     sql: ${TABLE}.YOY_SALES_WEEK_IND ;;
   }
