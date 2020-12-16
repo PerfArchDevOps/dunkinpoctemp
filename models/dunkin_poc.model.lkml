@@ -97,6 +97,14 @@ explore: pos_brand_by_day_dayprt_grp_f {
             AND ${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw} AND ${sales_progrms_d.end_date_raw};;
   }
 
+  join: bal_obi_date_variables {
+    relationship: many_to_one
+    type: full_outer
+    sql_on:1=1  ;;
+  }
+
+#  ${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} = ${bal_obi_date_variables.date_raw}
+
 }
 
 # Without override
@@ -1398,5 +1406,7 @@ explore: bltf_item_by_day {
 
 
 
-explore:init_block_dates_view
-{label: "Init Block for Dates"}
+
+
+explore:bal_obi_date_variables
+{label: "OBI Date Variables"}
