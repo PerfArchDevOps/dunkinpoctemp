@@ -30,11 +30,7 @@ explore: pos_brand_by_day_dayprt_grp_f {
   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
   AND ${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
 
-#  AND ${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} = '12-NOV-2020'
-
   label: "POS Brand by Day Daypart Group"
-
-
 
   join: dates {
    relationship: many_to_one
@@ -178,7 +174,6 @@ explore: pos_brand_by_week_dayprt_grp_f {
   sql_always_where: ${pos_brand_by_week_dayprt_grp_f.yoy_sales_week_ind} = 1
   AND ${ovride_comp_week.ovride_comp_week_ind} IS NULL
   AND ${pos_brand_by_week_dayprt_grp_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
-#   AND ${pos_brand_by_week_dayprt_grp_f.transctn_bus_raw} = '12-NOV-2020'
 
   label: "POS Brand by Week Daypart Group"
 
@@ -331,7 +326,6 @@ explore: pbbwdp {
 explore: pos_check_by_day_f {
   sql_always_where: ${pos_check_by_day_f.yoy_sales_day_ind} = 1
   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
-  AND ${pos_check_by_day_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_check_by_day_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
   label: "POS Check by Day"
   join: dates {
@@ -465,7 +459,6 @@ explore: apcdp {
 explore: pos_check_by_dayprt_f {
   sql_always_where: ${pos_check_by_dayprt_f.yoy_sales_day_ind} = 1
   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
-  AND ${pos_check_by_dayprt_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_check_by_dayprt_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
   label: "POS Check by Daypart"
   join: dates {
@@ -537,7 +530,6 @@ explore: pos_check_by_dayprt_f {
 explore: pos_check_by_week_dayprt_f {
   sql_always_where: ${pos_check_by_week_dayprt_f.yoy_sales_week_ind} = 1
   AND ${ovride_comp_week.ovride_comp_week_ind} IS NULL
-  AND ${pos_check_by_week_dayprt_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_check_by_week_dayprt_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
   label: "POS Check by Week Daypart"
   join: dates_week {
@@ -610,7 +602,6 @@ explore: pos_check_by_week_f {
   sql_always_where: ${pos_check_by_week_f.yoy_sales_week_ind} = 1
   AND ${ovride_comp_week.ovride_comp_week_ind} IS NULL
   AND ${pos_check_by_week_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
-#   AND ${pos_check_by_week_f.transctn_bus_raw} = '12-NOV-2020'
 
   label: "POS Check by Week "
 
@@ -801,7 +792,6 @@ explore: pos_item_by_day_f {
 explore: pos_item_by_dayprt_f {
   sql_always_where: ${pos_item_by_dayprt_f.yoy_sales_day_ind} = 1
   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
-  AND ${pos_item_by_dayprt_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_item_by_dayprt_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
   label: "POS Item by Daypart"
 
@@ -873,7 +863,6 @@ explore: pos_item_by_dayprt_f {
 explore: pos_item_by_week_dayprt_f {
   sql_always_where: ${pos_item_by_week_dayprt_f.yoy_sales_week_ind} = 1
   AND ${ovride_comp_week.ovride_comp_week_ind} IS NULL
-  AND ${pos_item_by_week_dayprt_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_item_by_week_dayprt_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
   label: "POS Item by Week Daypart"
 
@@ -941,7 +930,6 @@ explore: pos_item_by_week_dayprt_f {
 explore: pos_item_by_week_f {
   sql_always_where: ${pos_item_by_week_f.yoy_sales_week_ind} = 1
   AND ${ovride_comp_week.ovride_comp_week_ind} IS NULL
-  AND ${pos_item_by_week_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_item_by_week_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
   label: "POS Item by Week"
 
@@ -1002,7 +990,6 @@ explore: pos_item_by_week_f {
 explore: pos_subcat_by_day_dayprt_grp_f{
 sql_always_where: ${pos_subcat_by_day_dayprt_grp_f.yoy_sales_day_ind} = 1
                   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
-                  AND ${pos_subcat_by_day_dayprt_grp_f.transctn_bus_raw} = '12-NOV-2020'
                   AND ${pos_subcat_by_day_dayprt_grp_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
 label: "POS Sub Category by Day Daypart"
   join: dates {
@@ -1074,7 +1061,6 @@ label: "POS Sub Category by Day Daypart"
 explore: pos_subcat_by_wk_dayprt_grp_f {
 sql_always_where: ${pos_subcat_by_wk_dayprt_grp_f.yoy_sales_week_ind} = 1
 AND ${ovride_comp_week.ovride_comp_week_ind} IS NULL
-AND ${pos_subcat_by_wk_dayprt_grp_f.transctn_bus_raw} = '12-NOV-2020'
 AND ${pos_subcat_by_wk_dayprt_grp_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
 label: "POS Sub Category by Week Daypart"
 join: dates_week {
@@ -1145,7 +1131,6 @@ join: pos_ordr_type_code_d {
 explore: pos_yoy_day_sales_f {
   sql_always_where: ${pos_yoy_day_sales_f.sales_ind_ty} = 1
   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
-  AND ${pos_yoy_day_sales_f.transctn_bus_raw} = '12-NOV-2020'
   AND ${pos_yoy_day_sales_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
   label: "POS YOY Day Sales"
 
@@ -1203,7 +1188,6 @@ explore: pos_yoy_week_sales_f {
   sql_always_where: ${pos_yoy_week_sales_f.sales_ind_ty} = 1
   AND ${ovride_comp_week.ovride_comp_week_ind} IS NULL
   AND ${pos_yoy_week_sales_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
-#  AND ${pos_yoy_week_sales_f.transctn_bus_raw} = '12-NOV-2020'
 
   label: "POS YOY Week Sales"
   join: dates_week {
@@ -1317,7 +1301,6 @@ explore: pyws {
 explore: pos_yoy_day_sales_ly_f {
   sql_always_where: ${pos_yoy_day_sales_ly_f.sales_ind_ty} = 1
   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
-  AND ${pos_yoy_day_sales_ly_f.transctn_bus_raw} = to_date('12-nov-2020','DD-MON-YYYY') - 364
   AND ${pos_yoy_day_sales_ly_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
   label: "POS YOY Day Sales LY"
 
