@@ -986,6 +986,12 @@ explore: pos_item_by_week_f {
     sql_on: ${pos_item_by_week_f.dwh_pos_ordr_type_id}=${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
   }
 
+  join: pos_menu_item_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${pos_item_by_week_f.dwh_pos_menu_item_id}=${pos_menu_item_d.dwh_pos_menu_item_id} ;;
+  }
+
   join: sales_progrms_d {
     relationship: many_to_one
     type: inner
