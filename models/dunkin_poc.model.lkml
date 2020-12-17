@@ -1321,7 +1321,7 @@ explore: pos_yoy_day_sales_ly_f {
   join: dates{
     relationship: many_to_one
     type: inner
-    sql_on: ${pos_yoy_day_sales_ly_f.transctn_bus_raw} = TimeStampAdd(SQL_TSI_DAY,-364,${dates.actual_date_raw}) ;;
+    sql_on: ${pos_yoy_day_sales_ly_f.transctn_bus_raw} = ${dates.actual_date_raw}-364 ;;
   }
 
   join: shop_addtnl_attrbts_d {
