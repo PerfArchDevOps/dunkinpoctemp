@@ -40,7 +40,7 @@ view: pos_menu_item_d {
   dimension: dbi_item_sub_catgry_name {
     type: string
     label: "Sub Category"
-    hidden:yes   sql: ${TABLE}.DBI_ITEM_SUB_CATGRY_NAME ;;
+    hidden:no   sql: ${TABLE}.DBI_ITEM_SUB_CATGRY_NAME ;;
   }
 
   dimension: dwh_creatd_batch_id {
