@@ -1415,6 +1415,14 @@ explore:bal_obi_date_variables
 {label: "OBI Date Variables"}
 
 
+#
+#
+#  Example of aggregate awareness using all POS Sales fact tables
+#
+#
+
+
+
 explore: agg_pos_item {
   label: "Aggregate POS Item"
 
