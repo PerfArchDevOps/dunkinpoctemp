@@ -25,7 +25,6 @@ map_layer: dma_layer {
 
 explore: pos_brand_by_day_dayprt_grp_f {
 
-
   sql_always_where: ${pos_brand_by_day_dayprt_grp_f.yoy_sales_day_ind} = 1
   AND ${ovride_comp_day.ovride_comp_day_ind} IS NULL
   AND ${pos_brand_by_day_dayprt_grp_f.transctn_bus_raw} BETWEEN ${shop_brand_mastr_d.estblshd_comp_start_raw} AND sysdate;;
@@ -1420,7 +1419,6 @@ explore:bal_obi_date_variables
 #  Example of aggregate awareness using all POS Sales fact tables
 #
 #
-
 
 
 explore: agg_pos_item {
