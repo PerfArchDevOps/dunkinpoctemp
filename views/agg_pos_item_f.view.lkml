@@ -5,7 +5,7 @@ view: agg_pos_item
 
   sql_table_name:
   {% if    pos_item_brand_d.item_brand_name._in_query
-    and    dayprt_grp_d.dayprt_grp_code_in_query
+    and    dayprt_grp_d.dayprt_grp_code._in_query
     and    dates.fiscal_date._in_query %}
     BAL3.POS_BRAND_BY_DAY_DAYPRT_GRP_F
   {% elsif agg_pos_item.dwh_item_brand_id._in_query and agg_pos_item.dwh_dayprt_grp_id._in_query
