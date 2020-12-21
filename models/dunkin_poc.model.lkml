@@ -1451,6 +1451,12 @@ explore: agg_pos_item {
     sql_on: ${agg_pos_item.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id} ;;
   }
 
+  join: pos_menu_item_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${agg_pos_item.dwh_pos_menu_item_id} = ${pos_menu_item_d.dwh_pos_menu_item_id};;
+  }
+
   join: shop_addtnl_attrbts_d {
     relationship: many_to_one
     type: inner
@@ -1490,6 +1496,11 @@ explore: agg_pos_item {
             AND ${agg_pos_item.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw} AND ${sales_progrms_d.end_date_raw};;
   }
 
+  join: pos_item_sub_catgry_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${agg_pos_item.dwh_item_sub_catgry_id} = ${pos_item_sub_catgry_d.dwh_item_sub_catgry_id} ;;
+  }
 
   join: bal_obi_date_variables {
     relationship: many_to_one
