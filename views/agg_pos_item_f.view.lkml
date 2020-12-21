@@ -6,18 +6,18 @@ view: agg_pos_item
   sql_table_name:
   {% if    pos_item_brand_d.item_brand_name._in_query
     and    (dayprt_grp_d.dayprt_grp_code._in_query or dayprt_grp_d.dayprt_grp_desc._in_query)
-    and    (dates.fiscal_week._in_query or dates_week.fiscal_week._in_query %}
+    and    (dates.fiscal_week._in_query or dates_week.fiscal_week._in_query)  %}
     BAL3.POS_BRAND_BY_WEEK_DAYPRT_GRP_F
   {% elsif    pos_item_brand_d.item_brand_name._in_query
     and    (dayprt_grp_d.dayprt_grp_code._in_query or dayprt_grp_d.dayprt_grp_desc._in_query)
     and    dates.fiscal_date._in_query %}
     BAL3.POS_BRAND_BY_DAY_DAYPRT_GRP_F
   {% elsif
-          (pos_item_sub_catgry_d.dbi_item_brand_name._in_query or
+           (pos_item_sub_catgry_d.dbi_item_brand_name._in_query or
            pos_item_sub_catgry_d.dbi_item_catgry_name._in_query or
            pos_item_sub_catgry_d.dbi_item_sub_catgry_name._in_query)
     and    (dayprt_grp_d.dayprt_grp_code._in_query or dayprt_grp_d.dayprt_grp_desc._in_query)
-    and    (dates.fiscal_week._in_query or dates_week.fiscal_week._in_query %}
+    and    (dates.fiscal_week._in_query or dates_week.fiscal_week._in_query) %}
     BAL3.POS_SUBCAT_BY_WK_DAYPRT_GRP_F
   {% elsif
       (pos_item_sub_catgry_d.dbi_item_brand_name._in_query or
@@ -27,13 +27,15 @@ view: agg_pos_item
     and    dates.fiscal_date._in_query
   %}
     BAL3.POS_SUBCAT_BY_DAY_DAYPRT_GRP_F
-  {% elsif agg_pos_item.dwh_item_sub_catgry_id._in_query %}
-    BAL3.POS_ITEM_BY_DAY_F
-  {% elsif agg_pos_item.dwh_shop_brand_id._in_query %}
-    BAL3.POS_ITEM_BY_DAYPRT_F
-  {% elsif agg_pos_item.dwh_shop_rooftp_id._in_query %}
+  {% elsif pos_item_brand_d.item_brand_name._in_query
+    and    (dayprt_grp_d.dayprt_grp_code._in_query or dayprt_grp_d.dayprt_grp_desc._in_query)
+    and    (dates.fiscal_week._in_query or dates_week.fiscal_week._in_query) %}
     BAL3.POS_ITEM_BY_WEEK_DAYPRT_F
-  {% elsif agg_pos_item.dwh_item_sub_catgry_id._in_query %}
+  {% elsif    (dayprt_grp_d.dayprt_grp_code._in_query or dayprt_grp_d.dayprt_grp_desc._in_query)
+    and    (dates.fiscal_date._in_query)
+    %}
+    BAL3.POS_ITEM_BY_DAYPRT_F
+  {% elsif  (dates.fiscal_week._in_query or dates_week.fiscal_week._in_query) %}
     BAL3.POS_ITEM_BY_WEEK_F
   {% else %}
     BAL3.POS_ITEM_BY_DAY_F
