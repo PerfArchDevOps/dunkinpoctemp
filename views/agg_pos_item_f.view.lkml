@@ -18,7 +18,6 @@ view: agg_pos_item
            pos_item_sub_catgry_d.dbi_item_sub_catgry_name._in_query)
     and    (dayprt_grp_d.dayprt_grp_code._in_query or dayprt_grp_d.dayprt_grp_desc._in_query)
     and    (dates.fiscal_week._in_query or dates_week.fiscal_week._in_query %}
-    %}
     BAL3.POS_SUBCAT_BY_WK_DAYPRT_GRP_F
   {% elsif
       (pos_item_sub_catgry_d.dbi_item_brand_name._in_query or
