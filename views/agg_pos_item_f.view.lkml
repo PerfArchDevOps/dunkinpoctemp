@@ -87,12 +87,14 @@ view: agg_pos_item
     measure: net_sales_amt {
       type: sum
       hidden: no
+      value_format: "$0"
       sql: ${TABLE}.NET_SALES_AMT ;;
     }
 
     measure: net_sales_amt_ly {
       type: sum
       hidden: no
+      value_format: "$0"
       sql: ${TABLE}.NET_SALES_AMT_LY ;;
     }
 
@@ -129,12 +131,14 @@ view: agg_pos_item
     measure: net_sales_growth {
       label: "Net Sales Growth"
       type: sum
+      value_format: "$0"
       sql: NVL(${net_sales_amt_base},0)-NVL(${net_sales_amt_ly_base},0) ;;
     }
 
     measure: net_sales_growth_pct_sssd {
       label: "Net Sales Growth %"
       type: sum
+      value_format: "$0"
       sql: ((NVL(${net_sales_amt_base},0)/(NVL(${net_sales_amt_ly_base},0))-1)*100 ;;
     }
 
