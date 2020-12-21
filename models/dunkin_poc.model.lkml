@@ -1411,8 +1411,90 @@ explore: bltf_item_by_day {
 }
 
 
-
-
-
 explore:bal_obi_date_variables
 {label: "OBI Date Variables"}
+
+
+explore: agg_pos_item {
+  label: "Aggregate POS Item"
+
+  join: dates {
+    type:inner
+    relationship: many_to_one
+    sql_on: ${agg_pos_item.transctn_bus_raw} = ${dates.actual_date_raw} ;;
+  }
+
+  join: dates_week {
+    type: inner
+    relationship: many_to_one
+    sql_on: ${agg_pos_item.transctn_bus_week_raw} = ${dates_week.week_ending_raw} ;;
+  }
+
+   join: shop_brand_class_fl {
+
+    relationship: many_to_one
+    type: inner
+    sql_on: ${agg_pos_item.dwh_shop_brand_id} = ${shop_brand_class_fl.dwh_shop_brand_id}
+              AND ${agg_pos_item.dwh_shop_rooftp_id = ${shop_brand_class_fl.dwh_shop_rooftp_id}
+              AND ${agg_pos_item.transctn_bus_raw} = ${shop_brand_class_fl.shop_brand_class_raw}  };;
+  }
+
+  join: pos_item_brand_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${agg_pos_item.dwh_item_brand_id} = ${pos_item_brand_d.dwh_item_brand_id} ;;
+  }
+
+  join: shop_brand_mastr_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${agg_pos_item.dwh_shop_brand_id} = ${shop_brand_mastr_d.dwh_shop_brand_id} ;;
+  }
+
+  join: shop_addtnl_attrbts_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${agg_pos_item.dwh_shop_brand_id} = ${shop_addtnl_attrbts_d.dwh_shop_brand_id} ;;
+  }
+
+  join: ovride_comp_day {
+    relationship: many_to_one
+    type: left_outer
+    sql_on:${agg_pos_item.transctn_bus_raw} = ${ovride_comp_day.ovride_comp_date_raw}
+      AND ${agg_pos_item.dwh_shop_brand_id} = ${ovride_comp_day.dwh_shop_brand_id};;
+  }
+
+  join: shop_rooftp_mastr_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${shop_brand_mastr_d.dwh_shop_rooftp_id} = ${shop_rooftp_mastr_d.dwh_shop_rooftp_id} ;;
+  }
+
+  join: dayprt_grp_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${agg_pos_item.dwh_dayprt_grp_id} = ${dayprt_grp_d.dwh_dayprt_grp_id} ;;
+  }
+
+  join: pos_ordr_type_code_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${agg_pos_item.dwh_pos_ordr_type_id} = ${pos_ordr_type_code_d.dwh_pos_ordr_type_id} ;;
+  }
+
+  join: sales_progrms_d {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${agg_pos_item.dwh_shop_brand_id} = ${sales_progrms_d.dwh_shop_brand_id}
+            AND ${agg_pos_item.dwh_shop_rooftp_id} = ${sales_progrms_d.dwh_shop_rooftp_id}
+            AND ${agg_pos_item.transctn_bus_raw} BETWEEN ${sales_progrms_d.start_raw} AND ${sales_progrms_d.end_date_raw};;
+  }
+
+
+  join: bal_obi_date_variables {
+    relationship: many_to_one
+    type: full_outer
+    sql_on:1=1  ;;
+  }
+
+}
