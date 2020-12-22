@@ -495,15 +495,20 @@ view: shop_rooftp_mastr_d {
     sql: ${TABLE}.LINE_2_ADDR ;;
   }
 
+  dimension: store_location {
+    type: location
+    sql_latitude: ${TABLE}.LOCATN_LATITUDE_NBR ;;
+    sql_longitude: ${TABLE}.LOCATN_LONGITUDE_NBR ;;
+  }
   dimension: locatn_latitude_nbr {
     type: number
-    hidden: yes
+    hidden: no
     sql: ${TABLE}.LOCATN_LATITUDE_NBR ;;
   }
 
   dimension: locatn_longitude_nbr {
     type: number
-    hidden: yes
+    hidden: no
     sql: ${TABLE}.LOCATN_LONGITUDE_NBR ;;
   }
 
