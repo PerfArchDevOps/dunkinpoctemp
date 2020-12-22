@@ -497,8 +497,8 @@ view: shop_rooftp_mastr_d {
 
   dimension: store_location {
     type: location
-    sql_latitude: ${TABLE}.LOCATN_LATITUDE_NBR /10000 ;;
-    sql_longitude: ${TABLE}.LOCATN_LONGITUDE_NBR / 10000 ;;
+    sql_latitude: ${TABLE}.LOCATN_LATITUDE_NBR /1000000 ;;
+    sql_longitude: ${TABLE}.LOCATN_LONGITUDE_NBR / 1000000 ;;
   }
 
 
