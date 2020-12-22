@@ -500,6 +500,8 @@ view: shop_rooftp_mastr_d {
     sql_latitude: ${TABLE}.LOCATN_LATITUDE_NBR ;;
     sql_longitude: ${TABLE}.LOCATN_LONGITUDE_NBR ;;
   }
+
+
   dimension: locatn_latitude_nbr {
     type: number
     hidden: no
