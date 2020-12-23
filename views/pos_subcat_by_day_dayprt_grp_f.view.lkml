@@ -2,6 +2,17 @@ view: pos_subcat_by_day_dayprt_grp_f {
   label: "Fact - POS Sub Category by Day Daypart"
   sql_table_name: BAL3.POS_SUBCAT_BY_DAY_DAYPRT_GRP_F ;;
 
+  parameter: NET_SALES{
+   type: unquoted
+   allowed_value: {
+    label: "Current Year"
+    value: "NET_SALES_AMT"}
+   allowed_value: {
+     label: "Last Year"
+     value: "net_sales_amt_ly"
+   }
+  }
+
   dimension: discnt_amt_base {
     type: number
     hidden: yes
@@ -177,6 +188,12 @@ view: pos_subcat_by_day_dayprt_grp_f {
     type: string
     hidden: yes
     sql: ${TABLE}.YOY_SALES_DAY_IND ;;
+  }
+
+    measure: dynamic_calc {
+      type: sum
+      sql: ${TABLE}.{% parameter NET_SALES %} ;;
+      value_format_name: "usd"
   }
 
   measure: count {
