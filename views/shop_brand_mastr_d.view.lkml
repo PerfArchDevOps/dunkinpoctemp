@@ -2,6 +2,29 @@ view: shop_brand_mastr_d {
   label: "Dim - Shop Brand Master"
   sql_table_name: BAL3.SHOP_BRAND_MASTR_D ;;
 
+  parameter: ops_level {
+    label: "Ops Level"
+    type: unquoted
+    allowed_value: {
+      label: "Director"
+      value: "sl_gm_pyrmd_name"
+    }
+    allowed_value: {
+      label: "Regional Vice President"
+      value: "sl_sme_pyrmd_name"
+    }
+    allowed_value: {
+      label: "Manager"
+      value: "sl_bc_pyrmd_name"
+    }
+  }
+
+
+  dimension:  col_ops_level{
+   label_from_parameter: ops_level
+   type: string
+    sql: ${TABLE}.{% parameter ops_level %} ;;
+  }
   dimension_group: actl_refrbsh {
     type: time
     timeframes: [

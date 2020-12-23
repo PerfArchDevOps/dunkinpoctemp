@@ -2,7 +2,8 @@ view: pos_subcat_by_day_dayprt_grp_f {
   label: "Fact - POS Sub Category by Day Daypart"
   sql_table_name: BAL3.POS_SUBCAT_BY_DAY_DAYPRT_GRP_F ;;
 
-  parameter: NET_SALES{
+  parameter: current_last_year{
+    label: "Current or Last Year?"
    type: unquoted
    allowed_value: {
     label: "Current Year"
@@ -191,8 +192,9 @@ view: pos_subcat_by_day_dayprt_grp_f {
   }
 
     measure: dynamic_calc {
+      label_from_parameter: current_last_year
       type: sum
-      sql: ${TABLE}.{% parameter NET_SALES %} ;;
+      sql: ${TABLE}.{% parameter current_last_year %} ;;
       value_format_name: "usd"
   }
 
